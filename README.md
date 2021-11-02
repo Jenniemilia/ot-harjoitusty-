@@ -8,3 +8,4 @@
 
 [komentorivi.txt](https://github.com/Jenniemilia/ot-harjoitusty-/blob/master/laskarit/viikko1/komentorivi.txt)
 
+### Viikko 2 ###
