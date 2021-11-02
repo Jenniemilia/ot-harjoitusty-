@@ -1,0 +1,115 @@
+jenylund@lx1-fuxi142:~/Ohte/ot_viikko1/tiedostoja$ git log --stat | cat
+commit 9a704255195eb1ba1d5c73a758ca88222e1faffd
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:57:39 2021 +0200
+
+    Tiedostojen poisto ja uudelleen nimeäminen
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 878371892b72589bdf9b360ea09ecdfa6c7541d5
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:51:41 2021 +0200
+
+    uusia tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 321ee886a4c3da4ce7a32a23802de1285aeb2316
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:47:52 2021 +0200
+
+    muutoksia tiedostoihin 1 ja 3
+
+ eka.txt    | 4 ----
+ kolmas.txt | 2 ++
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+commit d8f7817ab8db098288542de8ab6acaa7c7394cd8
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:45:08 2021 +0200
+
+    muutettu tiedoston nimi eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d649a3cc02ef798dd90e672399446022d08083af
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:43:10 2021 +0200
+
+    poistettu toinen
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 650aff8fd44fdd602beb832a8efe421858652c3d
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:39:44 2021 +0200
+
+    muutoksia tiedostoon
+
+ tiedosto.txt | 27 ++++++++++++++++++++++-----
+ 1 file changed, 22 insertions(+), 5 deletions(-)
+
+commit c5307463731831e4bbcbc5a7ca1fe613ce60a870
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:38:01 2021 +0200
+
+    lisäys tiedostoon
+
+ tiedosto.txt | 44 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+
+commit aace63dfe18e7f1f0c8f04b0f9774735db19976e
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:29:54 2021 +0200
+
+    stuff lisätty
+
+ "stuff/t\303\244rke\303\244.txt" | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6f9b21b161fc05f6737191e0b08cc8e78d413e2f
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:28:31 2021 +0200
+
+    muutoksia toiseen ja kolmanteen
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 9f0b719d58d3bd8d42294a0a14e16547902477d8
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:26:59 2021 +0200
+
+    kolmas lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 600c5e9353464ae0a73bcf8019d42148a5b8a835
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:25:07 2021 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 2 ++
+ toinen.txt   | 0
+ 2 files changed, 2 insertions(+)
+
+commit a0977314807977a4f6111dd10ee4d9bec66892b2
+Author: Jenni Nylund <jenni.esprit@gmail.com>
+Date:   Tue Nov 2 10:19:02 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+jenylund@lx1-fuxi142:~/Ohte/ot_viikko1/tiedostoja$ 
