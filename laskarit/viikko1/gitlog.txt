@@ -1,3 +1,5 @@
+ 1 vkon harjoitus
+
 jenylund@lx1-fuxi142:~/Ohte/ot_viikko1/tiedostoja$ git log --stat | cat
 commit 9a704255195eb1ba1d5c73a758ca88222e1faffd
 Author: Jenni Nylund <jenni.esprit@gmail.com>
