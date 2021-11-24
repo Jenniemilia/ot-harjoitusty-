@@ -1,12 +1,15 @@
 from entities.store import Store
 
+from repositories.store_repository import store_repository
+
 class UserInputError(Exception):
     pass
 
 
 class StoreService:
-    def __init__(self):
+    def __init__(self, store_repository):
         self._user = None
+        self._store_repository = store_repository
 
 
     def register(self, storenumber, password, password_confirmation, login = True):
@@ -15,7 +18,7 @@ class StoreService:
 
         self.validate(storenumber, password, password_confirmation)
 
-        store = self._store_repository.create(
+        store = self._store_repository.create_new(
             Store(storenumber, password)
         )
 
@@ -50,4 +53,4 @@ class StoreService:
     def logout(self):
         self._store = None
 
-store_service = StoreService()
+store_service = StoreService(store_repository)

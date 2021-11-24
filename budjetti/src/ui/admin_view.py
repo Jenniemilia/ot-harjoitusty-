@@ -8,5 +8,14 @@ class Create_admin_view:
         pass
 
     
+    def set_target(self):
+        pass
 
+    def convert_target(self):
+        """Convert LY sales based on growth plan"""
+        calculator = sales_ly * (growth_plan * 100)
+    
+        return 
+        pass
 
+    """Top-level widget on different stores?"""
