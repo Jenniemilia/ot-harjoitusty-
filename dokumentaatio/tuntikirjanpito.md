@@ -7,3 +7,4 @@
 |13.11. | 1    | Alustus projektille
 |18.11. | 6    | Tutustumista Tkinteriin ja ohjelmiston suunnittelun periaatteisiin
 |23.11. | 9    | Käyttöliittymän alustaminen, toistaiseksi vielä pitkälle mallin mukaan ennenkuin osaan paremmin alkaa soveltamaan opittua seuraaviin toimintoihin.
+|24.11. | 6    | Tietokantapohja valmiiksi. Register ikkunan bugien korjaus
