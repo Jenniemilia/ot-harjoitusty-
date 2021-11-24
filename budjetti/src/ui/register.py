@@ -1,16 +1,14 @@
 from tkinter import ttk, constants
 from services.store_service import store_service
 
-
 class RegisterView:
     def __init__(self, root, handle_register, handle_show_login):
-        self.root = root
+        self._root = root
         self._handle_register = handle_register
         self._handle_show_login = handle_show_login
         self._frame = None
         self._storenumber_entry = None
         self._password_entry = None
-
 
         self._initialize()
 

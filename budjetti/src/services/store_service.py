@@ -6,7 +6,7 @@ class UserInputError(Exception):
 
 class StoreService:
     def __init__(self):
-        self.user = None
+        self._user = None
 
 
     def register(self, storenumber, password, password_confirmation, login = True):
@@ -41,8 +41,11 @@ class StoreService:
             raise UserInputError("Password should not contain only characters a-z")       
         
 
-    def login(self, strorenumber, password):
-        pass
+    def login(self, storenumber, password):
+
+        self._storenumber = storenumber
+
+        return storenumber
 
     def logout(self):
         self._store = None

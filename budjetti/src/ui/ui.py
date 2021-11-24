@@ -1,4 +1,5 @@
 
+from tkinter import Tk
 from ui.login import LoginView
 from ui.register import RegisterView
 
@@ -16,12 +17,19 @@ class UI:
 
         self._current = None
 
+    def _handle_login(self):
+        self._show_login()
+
+    def _handle_register(self):
+        self._show_register()
+
     def _show_login(self):
         self._hide_current()
 
         self._current = LoginView(
             self._root,
-            self._show_register
+            self._show_register,
+            self._handle_register
         )
 
         self._current.pack()
@@ -32,7 +40,8 @@ class UI:
 
         self._current = RegisterView(
             self._root,
-            self._show_login
+            self._show_login,
+            self._handle_login
         )
 
         self._current.pack()
