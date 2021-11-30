@@ -11,10 +11,10 @@ Myymälätunnuksilla näkee tulevan kuukauden tavoitteen sekä pystyy muokkaamaa
 
 ## Asennus
 1. Asenna riippuvuudet komennolla: poetry install
-2. Käynnistä sovellus komennolla poetry invoke start
+2. Käynnistä sovellus komennolla poetry run invoke start
 
 ## Komentorivitoiminnot
-Ohjelman suorittaminen onnistuu komennolla: poetry invoke start
+Ohjelman suorittaminen onnistuu komennolla: poetry run invoke start
 
 Ohjelman testit suoritetaan komennolla: poetry run invoke test
 
