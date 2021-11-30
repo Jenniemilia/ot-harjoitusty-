@@ -2,10 +2,9 @@ from tkinter import ttk, constants
 from services.store_service import store_service
 
 class RegisterView:
-    def __init__(self, root, handle_register, handle_show_login):
+    def __init__(self, root, views):
         self._root = root
-        self._handle_register = handle_register
-        self._handle_show_login = handle_show_login
+        self._views = views
         self._frame = None
         self._storenumber_entry = None
         self._password_entry = None
@@ -24,7 +23,8 @@ class RegisterView:
         password_confirmation = self._password_confirmation_entry.get()
 
         store_service.register(storenumber, password, password_confirmation)
-        self._handle_register()
+        text=f'Store {storenumber} was registered'
+        self._views[0]
 
     def _initialize_storenumber_section(self):
         storenumber_label = ttk.Label(master=self._frame, text="Storenumber")
@@ -60,7 +60,7 @@ class RegisterView:
 
         create_store_button = ttk.Button(master=self._frame, text="Register new store", command=self._create_new_store)
 
-        login_button = ttk.Button(master=self._frame, text="Login", command=self._handle_show_login)
+        login_button = ttk.Button(master=self._frame, text="Login", command=self._views[0])
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
