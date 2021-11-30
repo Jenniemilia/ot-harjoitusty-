@@ -20,7 +20,15 @@ class StoreView:
         header_label = ttk.Label(master=self._frame, 
         text=f"You are logged in with storenumber: {self._store.storenumber}")
 
-        header_label.grid(row=0, column=0, padx=5, pady=5, sticky=constants.W)
+        header_label.grid(padx=5, pady=5, sticky=constants.W)
+
+    def _initialize_store_budget(self):
+        monthly_budget_label = ttk.Label(master=self._frame,
+        text=f"Your monthly budget for November is 145000")
+        monthly_budget_label.grid(padx=5, pady=5, sticky=constants.W)
+
+        
+
 
 
 
@@ -28,6 +36,7 @@ class StoreView:
         self._frame = ttk.Frame(master=self._root)
 
         self._initialize_header()
+        self._initialize_store_budget()
 
 
 
