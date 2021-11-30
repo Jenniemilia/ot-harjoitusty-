@@ -9,4 +9,5 @@
 |23.11. | 9    | Käyttöliittymän alustaminen, toistaiseksi vielä pitkälle mallin mukaan ennenkuin osaan paremmin alkaa soveltamaan opittua seuraaviin toimintoihin
 |24.11. | 6    | Tietokantapohja valmiiksi. Register ikkunan bugien korjaus
 |26.11. | 1    | Käyttöliittymän parantelua
-|30.11. | 8    | Käyttöliittymän laajentamista sekä alustavien testien luominen
+|27.11. | 1    | Käyttöliittymän parantelua
+|30.11. | 8    | Käyttöliittymän sekä tietokannan laajentamista sekä alustavien testien luominen
