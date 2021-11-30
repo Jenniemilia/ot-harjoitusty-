@@ -20,7 +20,7 @@ class StoreRepository:
     def find_by_storenumber(self, storenumber):
 
         cursor = self._connection.cursor()
-        cursor.execute("select * from stores where storenumber = ?", (storenumber, ))
+        cursor.execute("SELECT * FROM stores WHERE storenumber = ?", (storenumber,))
 
         row = cursor.fetchone()
 
@@ -36,6 +36,14 @@ class StoreRepository:
         self._connection.commit()
 
         return store
+
+    def delete_all_stores(self):
+
+        cursor = self._connection.cursor()
+
+        cursor.execute("DELETE FROM stores")
+
+        self._connection.commit()
 
     
 

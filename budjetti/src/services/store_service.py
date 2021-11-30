@@ -5,11 +5,17 @@ from repositories.store_repository import store_repository
 class UserInputError(Exception):
     pass
 
+class InvalidCredentialsError(Exception):
+    pass
+
 
 class StoreService:
     def __init__(self, store_repository):
-        self._user = None
+        self._store = None
         self._store_repository = store_repository
+
+    
+ 
 
 
     def register(self, storenumber, password, password_confirmation, login = True):
@@ -46,9 +52,18 @@ class StoreService:
 
     def login(self, storenumber, password):
 
+        store = self._store_repository.find_by_storenumber(storenumber)
+
+        if not store or store.password != password:
+            raise InvalidCredentialsError("Invalid storenumber or password")
+
         self._storenumber = storenumber
 
         return storenumber
+
+    def get_current_store(self):
+
+        return self._store
 
     def logout(self):
         self._store = None

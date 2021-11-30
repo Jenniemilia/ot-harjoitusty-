@@ -4,10 +4,9 @@ from services.store_service import store_service
 
 
 class LoginView:
-    def __init__(self, root, handle_login, handle_show_register):
+    def __init__(self, root, views):
         self._root = root
-        self._handle_login = handle_login
-        self._handle_show_register = handle_show_register
+        self._views = views
         self._frame = None
         self._storenumber_entry = None
         self._password_entry = None
@@ -25,7 +24,7 @@ class LoginView:
         password = self._password_entry.get()
 
         store_service.login(storenumber, password)
-        self._handle_login()
+        self._views[3]()
 
     def _initialize_storenumber_section(self):
         storenumber_label = ttk.Label(master=self._frame, text="Storenumber")
@@ -51,7 +50,7 @@ class LoginView:
 
         login_button = ttk.Button(master=self._frame, text="Login", command=self._login)
 
-        register_button = ttk.Button(master=self._frame, text="Register", command=self._handle_show_register)
+        register_button = ttk.Button(master=self._frame, text="Register", command=self._views[1])
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
