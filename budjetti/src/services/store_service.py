@@ -14,11 +14,11 @@ class StoreService:
         self._store = None
         self._store_repository = store_repository
 
-    
- 
-
 
     def register(self, storenumber, password, password_confirmation, login = True):
+        """Tarkistaa onko Admin oikeudet"""
+        
+
 
         """Rekisteröi uuden myymälän."""
 
@@ -33,6 +33,10 @@ class StoreService:
 
         return store
 
+    def validate_user(storenumber):
+        if storenumber == "Päällikkö":
+            pass
+
     def validate(self, storenumber, password, password_confirmation):
         if not storenumber or not password:
             raise UserInputError("You need to insert valid storenumber and password")
@@ -42,13 +46,13 @@ class StoreService:
 
         if password != password_confirmation:
             raise UserInputError("Passwords don't match")
-            
+
         if storenumber == ('^[0-9]+$'):
             raise UserInputError("Storenumber can only contain numbers 0-9")
 
         if password == ('[^a-z]'):
-            raise UserInputError("Password should not contain only characters a-z")       
-        
+            raise UserInputError("Password should not contain only characters a-z")
+
 
     def login(self, storenumber, password):
 

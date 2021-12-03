@@ -59,6 +59,6 @@ class LoginView:
         text_label = ttk.Label(master=self._frame, text="If you don't have account yet, register here")
         text_label.grid(column=0, padx=5, pady=5)
         register_button.grid(padx=5, pady=5)
-    
-      
+
+
 

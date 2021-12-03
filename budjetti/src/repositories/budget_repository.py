@@ -6,7 +6,7 @@ class BudgetRepository:
 
     def __init__(self, file_path):
         """Luokan konstruktori
-        
+
         Args:
             file_path: polku tiedostoon johon toteutuneet myynnit tallennetaan."""
 
@@ -31,5 +31,5 @@ class BudgetRepository:
         self._connection.commit()
 
 
-    
+
 budget_repository = BudgetRepository(get_database_connection())
