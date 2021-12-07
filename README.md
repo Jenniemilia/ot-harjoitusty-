@@ -9,6 +9,8 @@ Myymälätunnuksilla näkee tulevan kuukauden tavoitteen sekä pystyy muokkaamaa
 
 [Tuntikirjanpito](https://github.com/Jenniemilia/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
+[Arkkitehtuurikuvaus](https://github.com/Jenniemilia/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 ## Asennus
 1. Asenna riippuvuudet komennolla: poetry install
 2. Käynnistä sovellus komennolla poetry run invoke start
