@@ -24,7 +24,7 @@ class RegisterView:
 
         store_service.register(storenumber, password, password_confirmation)
         text=f'Store {storenumber} was registered'
-        self._views[3]()
+        self._views[2]()
 
     def _initialize_storenumber_section(self):
         storenumber_label = ttk.Label(master=self._frame, text="Storenumber")

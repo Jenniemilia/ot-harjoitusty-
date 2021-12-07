@@ -24,7 +24,7 @@ class LoginView:
         password = self._password_entry.get()
 
         store_service.login(storenumber, password)
-        self._views[3]()
+        self._views[2]()
 
     def _initialize_storenumber_section(self):
         storenumber_label = ttk.Label(master=self._frame, text="Storenumber")
@@ -43,6 +43,7 @@ class LoginView:
 
 
     def _initialize(self):
+        """Initialize main view"""
         self._frame = ttk.Frame(master=self._root)
 
         self._initialize_storenumber_section()

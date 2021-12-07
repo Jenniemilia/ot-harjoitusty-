@@ -5,8 +5,8 @@ class KpiRepository:
     """Luokka joka hoitaa avainlukuihin liittyvän kommunikaation tietokannan kanssa.
     """
 
-    def __init__(self):
-        pass
+    def __init__(self, connection):
+        self.connection = connection
 
 
 kpi_repository = KpiRepository(get_database_connection())

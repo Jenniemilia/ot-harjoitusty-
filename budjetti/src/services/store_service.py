@@ -17,8 +17,6 @@ class StoreService:
 
     def register(self, storenumber, password, password_confirmation, login = True):
         """Tarkistaa onko Admin oikeudet"""
-        
-
 
         """Rekisteröi uuden myymälän."""
 

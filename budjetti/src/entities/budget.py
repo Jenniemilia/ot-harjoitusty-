@@ -7,8 +7,10 @@ class Budget:
         date = näyttää kyseisen päivän
     """
 
-    def __init__(self, storenumber, budget, date):
-        self.storenumber = storenumber
-        self.budget = budget
-        self.date = date
+    def __init__(self, month, sales_ly, traffic, store_id):
+        self.month = month
+        self.sales_ly = sales_ly
+        self.traffic = traffic
+        self.store_id = store_id
+
 

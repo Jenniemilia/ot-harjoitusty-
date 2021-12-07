@@ -3,7 +3,6 @@
 .coverage
 .coveragerc
 .pytest_cache
-.pylintrc
 htmlcov
 __pycache__
 *.py[cod]
