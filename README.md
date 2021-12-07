@@ -11,16 +11,41 @@ Myymälätunnuksilla näkee tulevan kuukauden tavoitteen sekä pystyy muokkaamaa
 
 [Arkkitehtuurikuvaus](https://github.com/Jenniemilia/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+## Releaset
+[Viikko 5](https://github.com/Jenniemilia/ot-harjoitustyo/releases/tag/v1.0.0)
+
 ## Asennus
-1. Asenna riippuvuudet komennolla: poetry install
-2. Käynnistä sovellus komennolla poetry run invoke start
+1. Asenna riippuvuudet komennolla: 
+```bash
+poetry install
+```
+2. Käynnistä sovellus komennolla:  
+```bash
+poetry run invoke start
+```
+
 
 ## Komentorivitoiminnot
-Ohjelman suorittaminen onnistuu komennolla: poetry run invoke start
+Ohjelman suorittaminen onnistuu komennolla: 
+```bash
+poetry run invoke start
+```
 
-Ohjelman testit suoritetaan komennolla: poetry run invoke test
+Ohjelman testit suoritetaan komennolla: 
+```bash
+poetry run invoke test
+```
 
-Testikattavuuden voi generoida komennolla: poetry run invoke coverage-report  
-Raportti löytyy tämän jälkeen htmlcov-hakemistosta
+Testikattavuuden voi generoida komennolla:  
+```bash
+poetry run invoke coverage-report 
+```
 
-Laatutarkastuksen voi suorittaa komennolla: poetry run invoke lint
+Raportti löytyy tämän jälkeen: 
+```bash
+htmlcov-hakemistosta
+```
+
+Laatutarkastuksen voi suorittaa komennolla:  
+```bash
+poetry run invoke lint
