@@ -11,3 +11,9 @@
 |26.11. | 1    | Käyttöliittymän parantelua
 |27.11. | 1    | Käyttöliittymän parantelua
 |30.11. | 8    | Käyttöliittymän sekä tietokannan laajentamista sekä alustavien testien luominen
+|3.12.  | 8    | Tietokannan laajentamista sekä käyttöliittymän parantelua
+|4.12.  | 2    | TKinterin opettelemista
+|7.12.  | 7    | Informaation kuljetuksen parantamista sovelluksessa, ei onnistunut. Arkkitehtuurikuvauksen luonti
+|       | 43   | Tunnit yhteensä
+
+
