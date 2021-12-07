@@ -29,12 +29,13 @@ class StoreView:
         header_label = ttk.Label(master=self._frame,
         text=f"You are logged in with storenumber: {self._store.storenumber}")
 
-        header_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5, sticky=(constants.E, constants.W))
+        header_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5,
+        sticky=(constants.E, constants.W))
 
     def _initialize_store_budget(self):
         monthly_budget_label = ttk.Label(master=self._root,
         text=f"Your monthly budget for November is 145000")
-        
+
         ly_sales_label = ttk.Label(master=self._root,
         text=f"Sales from LY November {self._monthly_budget}")
 
@@ -49,7 +50,8 @@ class StoreView:
         month_CR_label = ttk.Label(master=monthly_kpi_targets_label,
         text="CR tavoite:")
         self._month_CR_entry = ttk.Entry(master=self._frame)
-        cr_button = ttk.Button(monthly_kpi_targets_label, text="Confirm", command=self._CR_kpi_handler)
+        cr_button = ttk.Button(monthly_kpi_targets_label,
+        text="Confirm", command=self._CR_kpi_handler)
 
         month_CR_label.grid(row=4,column=0, padx=5, pady=5, sticky=constants.W)
         cr_button.grid(column=1, padx=5, pady=5)

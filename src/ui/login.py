@@ -4,7 +4,17 @@ from services.store_service import store_service
 
 
 class LoginView:
+    """Class for login"""
+
     def __init__(self, root, views):
+        """Constructor, initializes class attributes
+
+        Args:
+            root: main frame
+            views: a list from other views, transition takes place
+            according to the index of the list.
+        """
+
         self._root = root
         self._views = views
         self._frame = None
@@ -14,9 +24,13 @@ class LoginView:
         self._initialize()
 
     def pack(self):
+        """Compress the main frame"""
+
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Destroy the main frame"""
+
         self._frame.destroy()
 
     def _login(self):
@@ -57,7 +71,8 @@ class LoginView:
 
 
         login_button.grid(padx=5, pady=5)
-        text_label = ttk.Label(master=self._frame, text="If you don't have account yet, register here")
+        text_label = ttk.Label(master=self._frame,
+        text="If you don't have account yet, register here")
         text_label.grid(column=0, padx=5, pady=5)
         register_button.grid(padx=5, pady=5)
 

@@ -3,6 +3,14 @@ from services.store_service import store_service
 
 class RegisterView:
     def __init__(self, root, views):
+        """Constructor, initializes class attributes
+        
+        Args:
+            root: main frame
+            views: a list from other views, transition takes place
+            according to the index of the list.
+        """
+        
         self._root = root
         self._views = views
         self._frame = None
@@ -23,7 +31,6 @@ class RegisterView:
         password_confirmation = self._password_confirmation_entry.get()
 
         store_service.register(storenumber, password, password_confirmation)
-        text=f'Store {storenumber} was registered'
         self._views[2]()
 
     def _initialize_storenumber_section(self):
@@ -58,7 +65,8 @@ class RegisterView:
         self._initialize_password_section()
         self._initialize_password_confirmation_section()
 
-        create_store_button = ttk.Button(master=self._frame, text="Register new store", command=self._create_new_store)
+        create_store_button = ttk.Button(master=self._frame, text="Register new store",
+        command=self._create_new_store)
 
         login_button = ttk.Button(master=self._frame, text="Login", command=self._views[0])
 

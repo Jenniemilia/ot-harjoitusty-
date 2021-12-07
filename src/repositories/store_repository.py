@@ -9,6 +9,7 @@ class StoreRepository:
         self._connection = connection
 
     def find_all_stores(self):
+        """Find all stores as a list"""
         cursor = self._connection.cursor()
 
         cursor.execute('select * from stores')
@@ -18,6 +19,7 @@ class StoreRepository:
         return list(map(get_store_by_row, rows))
 
     def find_by_storenumber(self, storenumber):
+        """Find store by storenumber"""
 
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM stores WHERE storenumber = ?", (storenumber,))
@@ -27,11 +29,12 @@ class StoreRepository:
         return get_store_by_row(row)
 
     def create_new(self, store):
-        """Tallentaa uuden myymälän tietokantaan"""
+        """Save new store to the database"""
 
         cursor = self._connection.cursor()
 
-        cursor.execute("INSERT INTO stores (storenumber, password) VALUES (?,?)", (store.storenumber, store.password))
+        cursor.execute("INSERT INTO stores (storenumber, password) VALUES (?,?)",
+        (store.storenumber, store.password))
 
         self._connection.commit()
 
@@ -45,7 +48,4 @@ class StoreRepository:
 
         self._connection.commit()
 
-
-
 store_repository = StoreRepository(get_database_connection())
-

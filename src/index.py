@@ -1,5 +1,4 @@
 from tkinter import Tk
-import customtkinter
 from ui.ui import UI
 from initialize_database import initialize_database
 
@@ -19,5 +18,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-

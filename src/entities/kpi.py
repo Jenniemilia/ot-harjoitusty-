@@ -1,6 +1,6 @@
 class Kpi:
     """Luokka yksittäiselle avainluvulle.
-    
+
     Attributes:
         cr: maksavien asiakkaiden osuus.
         ipt: myydyt kappaleet per ostostapahtuma.
@@ -17,7 +17,7 @@ class Kpi:
 
     def __str__(self):
         """Metodi, joka palauttaa olion nimen merkkijonona.
-        
+
         Palauttaa olion merkkijonona"""
         return self.cr
         pass

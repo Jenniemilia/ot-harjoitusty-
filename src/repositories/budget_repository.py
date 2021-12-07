@@ -20,7 +20,8 @@ class BudgetRepository:
 
         cursor = self._connection.cursor()
 
-        cursor.execute("INSERT INTO budget (month, sales, store_id) VALUES (?,?,?)", (month, sales, store_id))
+        cursor.execute("INSERT INTO budget (month, sales, store_id) VALUES (?,?,?)",
+        (month, sales, store_id))
 
         self._connection.commit()
 
@@ -29,7 +30,8 @@ class BudgetRepository:
 
         cursor = self._connection.cursor()
 
-        cursor.execute("INSERT INTO sales (month, budget, traffic, store_id) VALUES (?,?,?,?)", (month, budget, traffic, store_id))
+        cursor.execute("INSERT INTO sales (month, budget, traffic, store_id) VALUES (?,?,?,?)", 
+        month, budget, traffic, store_id)
 
         self._connection.commit()
 
@@ -38,7 +40,8 @@ class BudgetRepository:
 
         cursor = self._connection.cursor()
 
-        cursor.execute("SELECT month, sales_ly FROM budget WHERE month = ? AND store_id = ?", (month, store_id))
+        cursor.execute("SELECT month, sales_ly FROM budget WHERE month = ? AND store_id = ?",
+        (month, store_id))
 
         row = cursor.fetchone()
 

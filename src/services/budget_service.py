@@ -12,7 +12,7 @@ class BudgetService:
         pass
 
     def get_total_fiscal_year_sales(self, store_id):
-        """Hakee koko edellisen tulposkauden myynnin"""
+        """Hakee koko edellisen tuloskauden myynnin"""
 
         return self._budget_repository.get_sales_from_total_fiscal_year(store_id)
 
