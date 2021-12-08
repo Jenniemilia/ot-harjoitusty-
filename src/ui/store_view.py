@@ -1,6 +1,5 @@
 from tkinter import ttk, constants
 from services.store_service import store_service
-from services.kpi_service import kpi_service
 from services.budget_service import budget_service
 
 class StoreView:
@@ -21,8 +20,6 @@ class StoreView:
 
     def _CR_kpi_handler(self):
         cr = self._month_CR_entry.get()
-
-        kpi_service.find_kpi(cr)
 
 
     def _initialize_header(self):
