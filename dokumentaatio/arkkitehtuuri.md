@@ -4,7 +4,7 @@
 
 Ohjelmassa on käytetty kerrosarkkitehtuuria, jossa ohjelma on jaettuna kolmeen tasoon. Kerroksien välisiä suhteita on havainnollistettu pakkauskaaviolla:
 
-![pakkauskaavio](images/Pakkauskaavio.jpeg)
+![pakkauskaavio](images/Pakkauskaavio.jpg)
 
 UI-luokka vastaa käyttöliittymästä ja sisältää siihen liittyvän koodin. Services vastaa sovelluslogiikasta. Repositories-luokka vastaa tietojen tallennuksesta sekä hakemisesta tietokannasta.
 
