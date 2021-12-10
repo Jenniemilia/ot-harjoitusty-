@@ -15,33 +15,13 @@ class BudgetRepository:
 
         self._connection = connection
 
-    def insert_monthly_budget(self, month, sales, store_id):
-        """Tallentaa kuluvan tuloskauden myynnit tietokantaan"""
-
-        cursor = self._connection.cursor()
-
-        cursor.execute("INSERT INTO budget (month, sales, store_id) VALUES (?,?,?)",
-        (month, sales, store_id))
-
-        self._connection.commit()
-
-    def insert_sales_LY(self, month, budget, traffic, store_id):
-        """Tallentaa edellisen tuloskauden myynnit tietokantaan"""
-
-        cursor = self._connection.cursor()
-
-        cursor.execute("INSERT INTO sales (month, budget, traffic, store_id) VALUES (?,?,?,?)", 
-        month, budget, traffic, store_id)
-
-        self._connection.commit()
-
     def get_sales_by_month(self, month, store_id):
         """Hakee edellisen tuloskauden myynnin kuukausitasolla"""
 
         cursor = self._connection.cursor()
 
         cursor.execute("SELECT month, sales_ly FROM budget WHERE month = ? AND store_id = ?",
-        (month, store_id))
+        [month, store_id])
 
         row = cursor.fetchone()
 
@@ -51,11 +31,11 @@ class BudgetRepository:
         """Hakee koko edellisen tuloskauden toteutuneen myynnin"""
 
         cursor = self._connection.cursor()
-        print(store_id)
-        print(type(store_id))
-        cursor.execute("SELECT SUM(sales_ly) FROM budget WHERE store_id= ?", (store_id,))
+ 
+        cursor.execute("SELECT SUM(sales_ly) FROM budget WHERE store_id= ?", [store_id])
 
         result = cursor.fetchone()
+        result = result[0]
 
         return result
 

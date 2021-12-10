@@ -15,10 +15,10 @@ class AdminView:
 
     def pack(self):
 
-        self._frame.pack()
+        self._frame.pack(fill=constants.X)
 
     def destroy(self):
-        self._frame.pack()
+        self._frame.destroy()
 
 
     """Convert LY sales based on growth plan"""

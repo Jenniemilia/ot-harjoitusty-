@@ -1,4 +1,5 @@
 from tkinter import ttk, constants
+import datetime as dt
 from services.store_service import store_service
 from services.budget_service import budget_service
 
@@ -20,38 +21,54 @@ class StoreView:
 
     def _CR_kpi_handler(self):
         cr = self._month_CR_entry.get()
+        pass
 
 
     def _initialize_header(self):
-        header_label = ttk.Label(master=self._frame,
-        text=f"You are logged in with storenumber: {self._store.storenumber}")
 
-        header_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5,
+        date = dt.datetime.now()
+        header_date = ttk.Label(master=self._frame, text=f"{date:%A, %d.%m.%Y}", font="Calibri, 12")
+
+        header_date.grid(row=0, columnspan=2, padx=5, pady=5,
         sticky=(constants.E, constants.W))
 
+        header_label = ttk.Label(master=self._frame,
+        text=f"Welcome! You are logged in with storenumber: {self._store.storenumber}", font="Calibri, 12")
+
+        header_label.grid(row=1, columnspan=2, padx=5, pady=5,
+        sticky=(constants.E, constants.W))
+
+
+
     def _initialize_store_budget(self):
-        monthly_budget_label = ttk.Label(master=self._root,
+        yearly_budget_label = ttk.Label(master=self._frame, 
+        text=f"This fiscal year budget this comes from database")
+
+        monthly_budget_label = ttk.Label(master=self._frame,
         text=f"Your monthly budget for November is 145000")
 
-        ly_sales_label = ttk.Label(master=self._root,
+        ly_sales_label = ttk.Label(master=self._frame,
         text=f"Sales from LY November {self._monthly_budget}")
 
-
-        monthly_budget_label.grid(row=3, column=0, padx=5, pady=5, sticky=constants.W)
-        ly_sales_label.grid(row=4, column=0, padx=5, pady=5, sticky=constants.W)
+        yearly_budget_label.grid(row=3, column=0, padx=5, pady=5, sticky=constants.W)
+        monthly_budget_label.grid(row=4, column=0, padx=5, pady=5, sticky=constants.W)
+        ly_sales_label.grid(row=5, column=0, padx=5, pady=5, sticky=constants.W)
 
     def _initialize_kpi_calculator(self):
-        monthly_kpi_targets_label = ttk.Label(master=self._root,
-        text= "Aseta avainlukutavoitteet")
+        monthly_kpi_targets_label = ttk.Label(master=self._frame,
+        text= "Calculate Key Figure targets")
 
-        month_CR_label = ttk.Label(master=monthly_kpi_targets_label,
+        month_CR_label = ttk.Label(master=self._frame,
         text="CR tavoite:")
-        self._month_CR_entry = ttk.Entry(master=self._frame)
-        cr_button = ttk.Button(monthly_kpi_targets_label,
+        month_CR_entry = ttk.Entry(master=self._frame)
+        cr_button = ttk.Button(master=self._frame,
         text="Confirm", command=self._CR_kpi_handler)
 
-        month_CR_label.grid(row=4,column=0, padx=5, pady=5, sticky=constants.W)
-        cr_button.grid(column=1, padx=5, pady=5)
+        monthly_kpi_targets_label.grid()
+        month_CR_label.grid(row=7,column=0, padx=5, pady=5, sticky=constants.W)
+        month_CR_entry.grid(row=8,column=0, padx=5, pady=5)
+
+        cr_button.grid(row=8, column=1, padx=5, pady=5)
 
     def _initialize_footer(self):
         pass
@@ -60,7 +77,7 @@ class StoreView:
 
 
     def _initialize(self):
-        """Alustaa näkymän"""
+        """Initialize page view"""
 
         self._frame = ttk.Frame(master=self._root)
 
@@ -69,7 +86,6 @@ class StoreView:
         self._initialize_kpi_calculator()
         self._initialize_footer()
 
-        self._frame.grid_columnconfigure(0, weight=1)
 
 
 
