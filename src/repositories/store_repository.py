@@ -38,7 +38,19 @@ class StoreRepository:
 
         self._connection.commit()
 
-        return store
+        return cursor.lastrowid
+
+    def get_store_information(self, store_id):
+        """Get storenumber by store_id"""
+
+        cursor = self._connection.cursor()
+
+        cursor.execute("SELECT storenumber FROM Stores WHERE id = ?", [store_id])
+
+        result = cursor.fetchone()
+        result = result[0]
+
+        return result
 
     def delete_all_stores(self):
 

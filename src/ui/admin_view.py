@@ -1,6 +1,6 @@
 from tkinter import Button, ttk, StringVar, constants
 from services.store_service import store_service
-from services.budget_service import budget_service
+from services.budget_service import BudgetService, budget_service
 
 class AdminView:
     def __init__(self, root, views):
@@ -9,7 +9,9 @@ class AdminView:
         self._label_var = None
         self._frame = None
         self._store = store_service.get_current_store()
-        self.ly_total_sales = budget_service.get_total_fiscal_year_sales(self._store.storenumber)
+        self._storenumber = store_service.get_storenumber_by_id(self._store)
+
+        self._ly_total_sales = budget_service.get_total_fiscal_year_sales(self._store)
 
         self.initialize()
 
@@ -26,8 +28,9 @@ class AdminView:
     def convert_target(self):
         growth_plan = self._budget_entry.get()
         growth_plan = int(growth_plan)
-
-        self.calculator = (980000 * (growth_plan + 100))/100
+    
+        self.calculator = ((self._ly_total_sales) * (growth_plan + 100))/100
+        budget_service.edit_yearly_target_budget(self.calculator, self._store)
 
         budget_outcome_label = ttk.Label(master=self._frame,
         text=f"Budget for the fiscal year 2021-2022: {self.calculator}")
@@ -49,13 +52,13 @@ class AdminView:
     def _initialize_header(self):
 
         store_label = ttk.Label(master=self._frame,
-        text=f"Welcome to store {self._store.storenumber}")
+        text=f"Welcome to store {self._storenumber}")
 
         store_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5,
         sticky=(constants.E, constants.W))
 
         ly_sales_info_label = ttk.Label(master=self._frame,
-        text=f"Last Fiscal Year sales total: 980000")
+        text=f"Last Fiscal Year sales total: {self._ly_total_sales}")
 
         ly_sales_info_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5,
         sticky=(constants.E, constants.W))

@@ -3,7 +3,6 @@ from entities.store import Store
 
 from repositories.store_repository import store_repository
 
-
 class UserInputError(Exception):
     pass
 
@@ -28,13 +27,10 @@ class StoreService:
         )
 
         if login:
-            self._store = store
+            self._store_id = store
+            print(self._store_id)
 
         return store
-
-    def validate_user(storenumber):
-        if storenumber == "Päällikkö":
-            pass
 
     def validate(self, storenumber, password, password_confirmation):
         if not storenumber or not password:
@@ -76,9 +72,18 @@ class StoreService:
 
     def get_current_store(self):
 
-        return self._store
+        return self._store_id
+
+    def get_storenumber_by_id(self, store_id):
+
+        storenumber = self._store_repository.get_store_information(store_id)
+
+        return storenumber
+
 
     def logout(self):
         self._store = None
+
+
 
 store_service = StoreService(store_repository)

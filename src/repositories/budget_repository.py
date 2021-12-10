@@ -2,7 +2,7 @@ from entities.budget import Budget
 from database_connection import get_database_connection
 
 def get_sales_by_month(row):
-    return Budget(row["month"], row["sales"], row["tarffic"]) if row else None
+    return Budget(row["month"], row["sales"], row["traffic"]) if row else None
 
 class BudgetRepository:
     """Luokka joka vastaa budgetin tietokantaan liittyvistä operaatioista"""
@@ -20,7 +20,7 @@ class BudgetRepository:
 
         cursor = self._connection.cursor()
 
-        cursor.execute("SELECT month, sales_ly FROM budget WHERE month = ? AND store_id = ?",
+        cursor.execute("SELECT month, sales_ly FROM Ly_fiscal WHERE month = ? AND store_id = ?",
         [month, store_id])
 
         row = cursor.fetchone()
@@ -28,16 +28,57 @@ class BudgetRepository:
         return get_sales_by_month(row)
 
     def get_sales_from_total_fiscal_year(self, store_id):
-        """Hakee koko edellisen tuloskauden toteutuneen myynnin"""
+        """Retrieves the actual sales for the entire previous fiscal year"""
 
         cursor = self._connection.cursor()
  
-        cursor.execute("SELECT SUM(sales_ly) FROM budget WHERE store_id= ?", [store_id])
+        cursor.execute("SELECT SUM(sales_ly) FROM Ly_fiscal WHERE store_id = ?", [store_id])
 
         result = cursor.fetchone()
         result = result[0]
 
         return result
 
+    def check_if_values_budget(self, store_id):
+        """Checks if earlier values in the table"""
+
+        cursor = self._connection.cursor()
+
+        cursor.execute("SELECT count(*) FROM Yearly_targets targets WHERE store_id = ?", [store_id])
+
+        result = cursor.fetchone()
+        print(result[0])
+        if result[0] == 0:
+            return False
+        else:
+            return True
+
+    def insert_yearly_target_budget(self, new_budget, store_id):
+        """Insert yearly targets to database"""
+
+        cursor = self._connection.cursor()
+
+        cursor.execute("""INSERT INTO Yearly_targets (budget, store_id) values (?, ?)""", [new_budget, store_id])
+
+        self._connection.commit()
+
+    def edit_yearly_target_budget(self, new_budget, store_id):
+        """Edit yearly targets given by user"""
+
+        cursor = self._connection.cursor()
+
+        cursor.execute("UPDATE Yearly_targets SET budget = ? WHERE store_id = ?",
+        [new_budget, store_id])
+
+        self._connection.commit()
+
+    def get_new_budget(self, store_id):
+
+        cursor = self._connection.cursor()
+
+        cursor.execute("SELECT budget FROM Yearly_targets WHERE store_id = ?", [store_id])
+
+        result = cursor.fetchone()
+        return result[0]
 
 budget_repository = BudgetRepository(get_database_connection())
