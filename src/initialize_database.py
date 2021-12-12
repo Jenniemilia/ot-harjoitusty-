@@ -1,4 +1,3 @@
-from sqlite3.dbapi2 import Cursor, connect
 from database_connection import get_database_connection
 
 
@@ -65,6 +64,7 @@ def insert_kpi_ly(connection):
     connection.commit()
 
 def initialize_database():
+    """Drops and recreates the tables in the main database"""
     connection = get_database_connection()
 
     drop_tables(connection)

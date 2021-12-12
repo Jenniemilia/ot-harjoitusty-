@@ -47,7 +47,6 @@ class BudgetRepository:
         cursor.execute("SELECT count(*) FROM Yearly_targets targets WHERE store_id = ?", [store_id])
 
         result = cursor.fetchone()
-        print(result[0])
         if result[0] == 0:
             return False
         else:

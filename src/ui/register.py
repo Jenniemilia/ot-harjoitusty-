@@ -2,14 +2,15 @@ from tkinter import ttk, constants
 from services.store_service import store_service
 
 class RegisterView:
-    def __init__(self, root, views):
-        """Constructor, initializes class attributes
+    """Constructor, initializes class attributes
         
         Args:
             root: main frame
             views: a list from other views, transition takes place
             according to the index of the list.
-        """
+    """
+    def __init__(self, root, views):
+
         
         self._root = root
         self._views = views
@@ -20,9 +21,13 @@ class RegisterView:
         self._initialize()
 
     def pack(self):
+        """Compresses the main frame"""
+
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Destroys the main frame"""
+
         self._frame.destroy()
 
     def _create_new_store(self):

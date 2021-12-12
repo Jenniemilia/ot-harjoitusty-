@@ -34,6 +34,7 @@ class LoginView:
         self._frame.destroy()
 
     def _login(self):
+        """login the user if existing storenumber and correct password"""
         storenumber = self._storenumber_entry.get()
         password = self._password_entry.get()
 

@@ -2,12 +2,15 @@ class Budget:
     """Kuukauden budjetti.
 
     Attributes:
-        storenumber = myymälä, jonka budjetti on kyseessä.
-        budget = kuukauden budjetti.
-        date = näyttää kyseisen päivän
+        storenumber = storenumber.
+        sales_ly = last fiscal year sales.
+        traffic = traffic in the store
+        store_id = store identify number
     """
 
     def __init__(self, month, sales_ly, traffic, store_id):
+        """Constructor that creates sales from previous years"""
+        
         self.month = month
         self.sales_ly = sales_ly
         self.traffic = traffic

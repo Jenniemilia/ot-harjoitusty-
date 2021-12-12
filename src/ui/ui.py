@@ -1,4 +1,3 @@
-
 from tkinter import Tk
 from ui.login import LoginView
 from ui.register import RegisterView
@@ -7,6 +6,7 @@ from ui.logout import LogoutView
 from ui.admin_view import AdminView
 
 class UI:
+    """Contains all the windows in the application"""
     def __init__(self, root):
         self._root = root
         self._current_view = None

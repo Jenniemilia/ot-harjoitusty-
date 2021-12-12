@@ -11,6 +11,8 @@ class InvalidCredentialsError(Exception):
 
 
 class StoreService:
+    """Class that provides functionality for safely communication with the database repository"""
+
     def __init__(self, store_repository):
         self._store = None
         self._store_repository = store_repository
@@ -18,7 +20,7 @@ class StoreService:
 
     def register(self, storenumber, password, password_confirmation, login = True):
 
-        """Rekisteröi uuden myymälän."""
+        """Inserts a new store into the database."""
 
         self.validate(storenumber, password, password_confirmation)
 
@@ -33,6 +35,7 @@ class StoreService:
         return store
 
     def validate(self, storenumber, password, password_confirmation):
+        """Makes sure that storenumber and password are valid"""
         if not storenumber or not password:
             messagebox.showerror("showerror", "You need to insert valid storenumber and password")
             raise UserInputError("You need to insert valid storenumber and password")
@@ -58,6 +61,7 @@ class StoreService:
 
 
     def login(self, storenumber, password):
+        """Log in the user"""
 
         store = self._store_repository.find_by_storenumber(storenumber)
 
@@ -71,10 +75,12 @@ class StoreService:
         return storenumber
 
     def get_current_store(self):
+        """Gets the current user id number"""
 
         return self._store_id
 
     def get_storenumber_by_id(self, store_id):
+        """Gets the current user storenumber"""
 
         storenumber = self._store_repository.get_store_information(store_id)
 

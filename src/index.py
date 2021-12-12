@@ -4,6 +4,7 @@ from initialize_database import initialize_database
 
 
 def main():
+    """Construct and run the application"""
     initialize_database()
     window = Tk()
     window.geometry("500x500")

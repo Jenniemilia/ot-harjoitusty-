@@ -3,6 +3,10 @@ from services.store_service import store_service
 from services.budget_service import BudgetService, budget_service
 
 class AdminView:
+    """Class that contains all the information of previous fiscal year budget and has
+    the tools to adjust the budget
+    """
+
     def __init__(self, root, views):
         self._root = root
         self._views = views
@@ -10,25 +14,26 @@ class AdminView:
         self._frame = None
         self._store = store_service.get_current_store()
         self._storenumber = store_service.get_storenumber_by_id(self._store)
-
         self._ly_total_sales = budget_service.get_total_fiscal_year_sales(self._store)
 
         self.initialize()
 
     def pack(self):
+        """Compresses the main frame"""
 
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Destroys the main frame"""
+
         self._frame.destroy()
 
-
-    """Convert LY sales based on growth plan"""
-
     def convert_target(self):
+        """Convert LY sales based on growth plan"""
+
         growth_plan = self._budget_entry.get()
         growth_plan = int(growth_plan)
-    
+
         self.calculator = ((self._ly_total_sales) * (growth_plan + 100))/100
         budget_service.edit_yearly_target_budget(self.calculator, self._store)
 
@@ -36,9 +41,11 @@ class AdminView:
         text=f"Budget for the fiscal year 2021-2022: {self.calculator}")
         budget_outcome_label.grid(row=5, padx=5, pady=5, sticky=(constants.E, constants.W))
 
-    """Calculate the personal costs budget in accordance with the budget
-    for the following financial year"""
+
     def convert_personal_costs(self):
+        """Calculate the personal costs budget in accordance with the budget
+        for the following financial year"""
+
         personal_costs_budget = self._personal_cost_entry.get()
         personal_costs_budget = int(personal_costs_budget )
 

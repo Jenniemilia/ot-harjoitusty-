@@ -4,6 +4,7 @@ from services.store_service import store_service
 from services.budget_service import budget_service
 
 class StoreView:
+    """Class that contains all the functionality in the store view"""
     def __init__(self, root, views):
         self._root = root
         self._views = views
@@ -17,9 +18,11 @@ class StoreView:
         self._initialize()
 
     def pack(self):
+        """Compresses the main frame"""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Destroys the main frame"""
         self._frame.destroy()
 
     def _CR_kpi_handler(self):
@@ -36,13 +39,14 @@ class StoreView:
     def _initialize_header(self):
 
         date = dt.datetime.now()
-        header_date = ttk.Label(master=self._frame, text=f"{date:%A, %d.%m.%Y}", font="Calibri, 12")
+        header_date = ttk.Label(master=self._frame,
+        text=f"Welcome! {date:%A, %d.%m.%Y}", font="Calibri, 12")
 
         header_date.grid(row=0, columnspan=2, padx=5, pady=5,
         sticky=(constants.E, constants.W))
 
         header_label = ttk.Label(master=self._frame,
-        text=f"Welcome! You are logged in with storenumber: {self._storenumber}", font="Calibri, 12")
+        text=f"You are logged in with storenumber: {self._storenumber}", font="Calibri, 12")
 
         header_label.grid(row=1, columnspan=2, padx=5, pady=5,
         sticky=(constants.E, constants.W))
@@ -85,7 +89,8 @@ class StoreView:
         cr_button.grid(row=8, column=1, padx=5, pady=5)
 
     def _initialize_footer(self):
-        pass
+        go_back_button = ttk.Button(master=self._frame, text="Go back", command=self._views[2])
+        go_back_button.grid(padx=12, pady=5, sticky=(constants.E, constants.W))
 
 
 
