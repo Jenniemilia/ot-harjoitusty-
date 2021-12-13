@@ -60,4 +60,6 @@ class StoreRepository:
 
         self._connection.commit()
 
+
+
 store_repository = StoreRepository(get_database_connection())
