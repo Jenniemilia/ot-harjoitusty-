@@ -14,6 +14,8 @@
 |3.12.  | 8    | Tietokannan laajentamista sekä käyttöliittymän parantelua
 |4.12.  | 2    | TKinterin opettelemista
 |7.12.  | 7    | Informaation kuljetuksen parantamista sovelluksessa, ei onnistunut. Arkkitehtuurikuvauksen luonti
-|       | 43   | Tunnit yhteensä
+|10.12. | 9    | Tietokannat toimiviksi. Toiminnallisuuden lisäämistä. Pylint testien mukaisia korjauksia
+|14.12. | 9    | Testien luomista. Log out toiminnot. Lisää ominaisuuksia myymälänäkymään.
+|       | 61   | Tunnit yhteensä
 
 
