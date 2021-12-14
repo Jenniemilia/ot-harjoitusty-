@@ -31,7 +31,7 @@ class BudgetRepository:
         """Retrieves the actual sales for the entire previous fiscal year"""
 
         cursor = self._connection.cursor()
- 
+
         cursor.execute("SELECT SUM(sales_ly) FROM Ly_fiscal WHERE store_id = ?", [store_id])
 
         result = cursor.fetchone()
@@ -48,15 +48,16 @@ class BudgetRepository:
         result = cursor.fetchone()
         if result[0] == 0:
             return False
-        else:
-            return True
+
+        return True
 
     def insert_yearly_target_budget(self, new_budget, store_id):
         """Insert yearly targets to database"""
 
         cursor = self._connection.cursor()
 
-        cursor.execute("""INSERT INTO Yearly_targets (budget, store_id) values (?, ?)""", [new_budget, store_id])
+        cursor.execute("""INSERT INTO Yearly_targets (budget, store_id) values (?, ?)""",
+        [new_budget, store_id])
 
         self._connection.commit()
 
