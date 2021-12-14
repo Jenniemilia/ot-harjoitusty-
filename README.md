@@ -14,16 +14,14 @@ Myymälätunnuksilla näkee tulevan kuukauden tavoitteen sekä pystyy muokkaamaa
 ## Releaset
 [Viikko 5](https://github.com/Jenniemilia/ot-harjoitustyo/releases/tag/v1.0.0)
 
+[Viikko 6](https://github.com/Jenniemilia/ot-harjoitustyo/releases/tag/viikko6)
+
 ## Asennus
 1. Asenna riippuvuudet komennolla: 
 ```bash
 poetry install
 ```
-2. Alusta ohjelma komennolla:
-```bash
-poetry run invoke build
-```
-3. Käynnistä sovellus komennolla:  
+2. Käynnistä sovellus komennolla:  
 ```bash
 poetry run invoke start
 ```
