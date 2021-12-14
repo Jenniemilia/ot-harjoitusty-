@@ -86,10 +86,9 @@ class StoreService:
 
         return storenumber
 
-
     def logout(self):
         """Log out current user"""
-        self._store_id = None
+        self._storenumber = None
 
 
 

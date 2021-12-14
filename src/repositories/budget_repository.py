@@ -2,7 +2,7 @@ from entities.budget import Budget
 from database_connection import get_database_connection
 
 def get_sales_by_month(row):
-    return Budget(row["month"], row["sales"], row["traffic"]) if row else None
+    return Budget(row["month"], row["sales_ly"], row["traffic"]) if row else None
 
 class BudgetRepository:
     """Luokka joka vastaa budgetin tietokantaan liittyvistä operaatioista"""
@@ -20,12 +20,12 @@ class BudgetRepository:
 
         cursor = self._connection.cursor()
 
-        cursor.execute("SELECT month, sales_ly FROM Ly_fiscal WHERE month = ? AND store_id = ?",
+        cursor.execute("SELECT sales_ly FROM Ly_fiscal WHERE month = ? AND store_id = ?",
         [month, store_id])
 
-        row = cursor.fetchone()
+        result = cursor.fetchone()
 
-        return get_sales_by_month(row)
+        return result[0]
 
     def get_sales_from_total_fiscal_year(self, store_id):
         """Retrieves the actual sales for the entire previous fiscal year"""
@@ -35,9 +35,8 @@ class BudgetRepository:
         cursor.execute("SELECT SUM(sales_ly) FROM Ly_fiscal WHERE store_id = ?", [store_id])
 
         result = cursor.fetchone()
-        result = result[0]
+        return result[0]
 
-        return result
 
     def check_if_values_budget(self, store_id):
         """Checks if earlier values in the table"""
@@ -81,3 +80,5 @@ class BudgetRepository:
         return result[0]
 
 budget_repository = BudgetRepository(get_database_connection())
+
+

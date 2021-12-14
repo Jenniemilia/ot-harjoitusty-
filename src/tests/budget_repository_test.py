@@ -4,3 +4,4 @@ from entities.budget import Budget
 
 class TestStoreRepository(unittest.TestCase):
     def setUp(self):
+        pass

@@ -48,9 +48,7 @@ class StoreRepository:
         cursor.execute("SELECT storenumber FROM Stores WHERE id = ?", [store_id])
 
         result = cursor.fetchone()
-        result = result[0]
-
-        return result
+        return result[0]
 
     def delete_all_stores(self):
 

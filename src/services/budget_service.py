@@ -16,10 +16,15 @@ class BudgetService:
 
         return self._yearly_sales
 
+    def get_last_year_sales_by_month(self, store_id):
+        """Gets monthly sales from database"""
+        sales = self._budget_repository.get_sales_by_month(3, store_id)
+        return sales
+
+
     def edit_yearly_target_budget(self, new_budget, store_id):
         """Edit fiscal year targets based on user input"""
         earlier_value = self._budget_repository.check_if_values_budget(store_id)
-        print(earlier_value)
         if earlier_value == False:
             self._budget_repository.insert_yearly_target_budget(new_budget, store_id)
 
