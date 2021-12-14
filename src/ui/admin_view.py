@@ -30,7 +30,7 @@ class AdminView:
 
     def _logout_handler(self):
         store_service.logout()
-        self._views[0]
+        self._views[0]()
 
     def convert_target(self):
         """Convert LY sales based on growth plan"""

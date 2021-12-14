@@ -4,7 +4,8 @@ from entities.store import Store
 from services.budget_service import BudgetService
 from services.store_service import (
     StoreService,
-    InvalidCredentialsError)
+    InvalidCredentialsError,
+    UsernameExistsError)
 
 class FakeBudgetRepository:
     def __init__(self, sales = None):
@@ -29,7 +30,7 @@ class FakeStoreRepository:
         matching_stores_list = list(matching_stores)
         return matching_stores_list[0] if len(matching_stores_list) > 0 else None
 
-    def create_new_store(self, storenumber):
+    def create_new(self, storenumber):
         self.stores.append(storenumber)
 
         return storenumber
@@ -37,20 +38,24 @@ class FakeStoreRepository:
     def delete_all(self):
         self.stores = []
 
-class TestBudgetService(unittest.TestCase):
+class TestStoreService(unittest.TestCase):
     def setUp(self):
         self.store_service = StoreService(
-            FakeBudgetRepository(),
             FakeStoreRepository()
         )
     
-        self.store_1234 = Store('1234', 'myymala1')
+        self.store_1234 = Store(1234, 'myymala1')
+    
+    def login(self, store):
+        self.store_service.register(store.storenumber, store.password, store.password)
 
     def test_login_with_valid_storenumber_and_password(self):
-        self.store_service.register(self.store_1234.storenumber, self.store_1234.password)
+
+        self.store_service.register(self.store_1234.storenumber, self.store_1234.password, self.store_1234.password)
 
         store = self.store_service.login(self.store_1234.storenumber, self.store_1234.password)
-
+        print(store.storenumber)
+        print(self.store_1234.storenumber)
         self.assertEqual(store.storenumber, self.store_1234.storenumber)
 
 

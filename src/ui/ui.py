@@ -2,7 +2,6 @@ from tkinter import Tk
 from ui.login import LoginView
 from ui.register import RegisterView
 from ui.store_view import StoreView
-from ui.logout import LogoutView
 from ui.admin_view import AdminView
 
 class UI:
@@ -14,8 +13,8 @@ class UI:
             self._show_login_view,
             self._show_register_view,
             self._show_admin_view,
-            self._show_store_view,
-            self._show_logout_view]
+            self._show_store_view
+            ]
 
     def start(self):
         self._show_login_view()
@@ -62,15 +61,6 @@ class UI:
         self._current_view = StoreView(
             self._root,
             self._views
-        )
-
-        self._current_view.pack()
-
-    def _show_logout_view(self):
-        self._hide_current_view()
-
-        self._current_view = LogoutView(
-            self._root
         )
 
         self._current_view.pack()

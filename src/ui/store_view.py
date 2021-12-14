@@ -26,7 +26,7 @@ class StoreView:
 
     def _logout_handler(self):
         store_service.logout()
-        self._views[0]
+        self._views[0]()
 
     def _CR_kpi_handler(self):
         cr_plan = self._month_CR_entry.get()

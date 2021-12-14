@@ -6,6 +6,9 @@ from repositories.store_repository import store_repository
 class UserInputError(Exception):
     pass
 
+class UsernameExistsError(Exception):
+    pass
+
 class InvalidCredentialsError(Exception):
     pass
 
@@ -20,7 +23,12 @@ class StoreService:
 
     def register(self, storenumber, password, password_confirmation, login = True):
 
-        """Inserts a new store into the database."""
+        """Inserts a new store into the database if not already in use."""
+
+        existing_store = self._store_repository.find_by_storenumber(storenumber)
+
+        if existing_store:
+            raise UsernameExistsError(f"Storenumber {storenumber} already exists")
 
         self.validate(storenumber, password, password_confirmation)
 
@@ -30,7 +38,6 @@ class StoreService:
 
         if login:
             self._store_id = store
-            print(self._store_id)
 
         return store
 
