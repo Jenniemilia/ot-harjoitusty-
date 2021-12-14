@@ -42,7 +42,7 @@ class AdminView:
         budget_service.edit_yearly_target_budget(self.calculator, self._store)
 
         budget_outcome_label = ttk.Label(master=self._frame,
-        text=f"Budget for the fiscal year 2021-2022: {self.calculator}")
+        text=f"Budget for the fiscal year 2021-2022: {self.calculator:.2f}")
         budget_outcome_label.grid(row=5, padx=5, pady=5, sticky=(constants.E, constants.W))
 
 
@@ -56,7 +56,7 @@ class AdminView:
         self.pc_calculator = (self.calculator * (personal_costs_budget))/100
 
         personal_cost_label = ttk.Label(master=self._frame,
-        text=f"Personal cost budget for the fiscal year 2021-2022: {self.pc_calculator}")
+        text=f"Personal cost budget for the fiscal year 2021-2022: {self.pc_calculator:.2f}")
         personal_cost_label.grid(row=9, padx=5, pady=5, sticky=(constants.E, constants.W))
 
 

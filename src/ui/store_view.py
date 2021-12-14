@@ -61,14 +61,18 @@ class StoreView:
 
         self._month_budget_calculator = round(self._new_budget/12, 2)
         monthly_budget_label = ttk.Label(master=self._frame,
-        text=f"Your monthly budget for November is {self._month_budget_calculator}")
+        text=f"Your monthly budget for November: {self._month_budget_calculator}")
 
         ly_sales_label = ttk.Label(master=self._frame,
         text=f"Sales from LY November {self._monthly_budget}")
 
-        yearly_budget_label.grid(row=3, column=0, padx=5, pady=5, sticky=constants.W)
-        monthly_budget_label.grid(row=4, column=0, padx=5, pady=5, sticky=constants.W)
-        ly_sales_label.grid(row=5, column=0, padx=5, pady=5, sticky=constants.W)
+        self._variation_calculator = ((self._month_budget_calculator/self._monthly_budget-1)*100)
+        variation_label = ttk.Label(master=self._frame, text=f"Variation: {self._variation_calculator:.2f}%", foreground="green")
+
+        yearly_budget_label.grid(row=3, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
+        monthly_budget_label.grid(row=4, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
+        ly_sales_label.grid(row=5, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
+        variation_label.grid(row=6, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
 
     def _initialize_ly_kpi_values(self):
         ly_kpi_values_header = ttk.Label(master=self._frame,
@@ -92,16 +96,16 @@ class StoreView:
         year potential netsale""")
 
         month_CR_label = ttk.Label(master=self._frame,
-        text="CR tavoite:")
+        text="CR growth (in %):")
         month_CR_entry = ttk.Entry(master=self._frame)
         cr_button = ttk.Button(master=self._frame,
         text="Confirm", command=self._CR_kpi_handler)
 
-        monthly_kpi_targets_label.grid(row=13, column=0, padx=10, pady=5, sticky=(constants.E, constants.W))
-        month_CR_label.grid(row=14,column=0, padx=5, pady=5, sticky=constants.W)
-        month_CR_entry.grid(row=15,column=0, padx=5, pady=5)
+        monthly_kpi_targets_label.grid(row=12, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
+        month_CR_label.grid(row=13, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
+        month_CR_entry.grid(row=14, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
 
-        cr_button.grid(row=15, column=1, padx=5, pady=5)
+        cr_button.grid(row=14, column=1, padx=5, pady=5)
 
     def _initialize_footer(self):
         go_back_button = ttk.Button(master=self._frame, text="Go back", command=self._views[2])

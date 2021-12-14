@@ -18,7 +18,7 @@ class BudgetService:
 
     def get_last_year_sales_by_month(self, store_id):
         """Gets monthly sales from database"""
-        sales = self._budget_repository.get_sales_by_month(3, store_id)
+        sales = self._budget_repository.get_sales_by_month(11, store_id)
         return sales
 
 
