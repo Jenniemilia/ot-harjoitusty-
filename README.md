@@ -11,6 +11,8 @@ Myymälätunnuksilla näkee tulevan kuukauden tavoitteen sekä pystyy muokkaamaa
 
 [Arkkitehtuurikuvaus](https://github.com/Jenniemilia/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[Käyttöohje](https://github.com/Jenniemilia/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
 ## Releaset
 [Viikko 5](https://github.com/Jenniemilia/ot-harjoitustyo/releases/tag/v1.0.0)
 
