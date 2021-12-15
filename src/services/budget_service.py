@@ -1,4 +1,6 @@
 from entities.budget import Budget
+from tkinter import messagebox
+
 
 from repositories.budget_repository import budget_repository
 
@@ -20,6 +22,13 @@ class BudgetService:
         """Gets monthly sales from database"""
         sales = self._budget_repository.get_sales_by_month(11, store_id)
         return sales
+
+    def check_if_target_values_have_been_set(self, store_id):
+        is_set = self._budget_repository.check_if_values_budget(store_id)
+        if is_set == False:
+            messagebox.showinfo("showinfo", "You need to set the targets first")
+            return False
+        return True
 
 
     def edit_yearly_target_budget(self, new_budget, store_id):

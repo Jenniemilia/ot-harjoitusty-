@@ -30,15 +30,23 @@ class StoreView:
 
     def _CR_kpi_handler(self):
         cr_plan = self._month_CR_entry.get()
-        cr_plan = int(cr_plan)
+        cr_plan = float(cr_plan)
 
-        self.kpi_calculator = (17 + cr_plan)
+        self.kpi_calculator = (16.61 + cr_plan)
 
-        cr_plan_ooutcome_label = ttk.Label(master=self._frame,
-        text=f"CR target: {self.kpi_calculator}")
-        cr_plan_ooutcome_label.grid(row=16, padx=5, pady=5, sticky=(constants.E, constants.W))
+        cr_plan_outcome_label = ttk.Label(master=self._frame,
+        text=f"CR target: {self.kpi_calculator:.2f}")
+        cr_plan_outcome_label.grid(row=15, padx=5, pady=5, sticky=(constants.E, constants.W))
 
+    def _IPT_kpi_handler(self):
+        ipt_plan = self._month_IPT_entry.get()
+        ipt_plan = float(ipt_plan)
 
+        self.ipt_calculatror = (1.51 *(ipt_plan/100+1))
+
+        ipt_plan_outcome_label = ttk.Label(master=self._frame,
+        text=f"IPT target: {self.ipt_calculatror:.2f}")
+        ipt_plan_outcome_label.grid(row=18, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
 
     def _initialize_header(self):
 
@@ -57,14 +65,14 @@ class StoreView:
 
     def _initialize_store_budget(self):
         yearly_budget_label = ttk.Label(master=self._frame, 
-        text=f"This fiscal year budget: {self._new_budget}")
+        text=f"This fiscal year budget: {self._new_budget}€")
 
         self._month_budget_calculator = round(self._new_budget/12, 2)
         monthly_budget_label = ttk.Label(master=self._frame,
-        text=f"Your monthly budget for November: {self._month_budget_calculator}")
+        text=f"Your monthly budget for November: {self._month_budget_calculator}€")
 
         ly_sales_label = ttk.Label(master=self._frame,
-        text=f"Sales from LY November {self._monthly_budget}")
+        text=f"Sales from LY November {self._monthly_budget}€")
 
         self._variation_calculator = ((self._month_budget_calculator/self._monthly_budget-1)*100)
         variation_label = ttk.Label(master=self._frame, text=f"Variation: {self._variation_calculator:.2f}%", foreground="green")
@@ -96,22 +104,31 @@ class StoreView:
         year potential netsale""")
 
         month_CR_label = ttk.Label(master=self._frame,
-        text="CR growth (in %):")
-        month_CR_entry = ttk.Entry(master=self._frame)
+        text="CR growth in %:")
+        self._month_CR_entry = ttk.Entry(master=self._frame)
         cr_button = ttk.Button(master=self._frame,
         text="Confirm", command=self._CR_kpi_handler)
 
         monthly_kpi_targets_label.grid(row=12, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
         month_CR_label.grid(row=13, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
-        month_CR_entry.grid(row=14, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
+        self._month_CR_entry.grid(row=14, column=0, padx=5, pady=5)
 
         cr_button.grid(row=14, column=1, padx=5, pady=5)
 
+        month_IPT_label = ttk.Label(master=self._frame,
+        text="Calculate IPT growth in %")
+        self._month_IPT_entry = ttk.Entry(master=self._frame)
+        ipt_button = ttk.Button(master=self._frame, text="Confirm", command=self._IPT_kpi_handler)
+
+        month_IPT_label.grid(row=16, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
+        self._month_IPT_entry.grid(row=17, column=0, padx=5, pady=5)
+        ipt_button.grid(row=17, column=1, padx=5, pady=5)
+
     def _initialize_footer(self):
         go_back_button = ttk.Button(master=self._frame, text="Go back", command=self._views[2])
-        go_back_button.grid(padx=5, pady=5, sticky=constants.SE)
+        go_back_button.grid(row=20, padx=5, pady=5, sticky=constants.SE)
         log_out_button = ttk.Button(master=self._frame, text="Log out", command=self._logout_handler)
-        log_out_button.grid(padx=5, pady=5, sticky=constants.SE)
+        log_out_button.grid(row=21, padx=5, pady=5, sticky=constants.SE)
 
     def _initialize(self):
         """Initialize page view"""

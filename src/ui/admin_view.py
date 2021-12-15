@@ -32,6 +32,12 @@ class AdminView:
         store_service.logout()
         self._views[0]()
 
+    def _move_to_kpi_handler(self):
+        check_if_targets = budget_service.check_if_target_values_have_been_set(self._store)
+        if check_if_targets == True:
+            self._views[3]()
+
+
     def convert_target(self):
         """Convert LY sales based on growth plan"""
 
@@ -112,7 +118,7 @@ class AdminView:
 
         footer_label.grid(row=11, padx=5, pady=5, sticky=(constants.E, constants.W))
 
-        footer_button = ttk.Button(master=self._frame, text="Move to KPI", command=self._views[3])
+        footer_button = ttk.Button(master=self._frame, text="Move to KPI", command=self._move_to_kpi_handler)
         footer_button.grid(row=12, padx=5, pady=5)
 
         log_out_button = ttk.Button(master=self._frame, text="Log out", command=self._logout_handler)
