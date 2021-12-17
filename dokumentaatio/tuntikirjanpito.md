@@ -16,6 +16,7 @@
 |7.12.  | 7    | Informaation kuljetuksen parantamista sovelluksessa, ei onnistunut. Arkkitehtuurikuvauksen luonti
 |10.12. | 9    | Tietokannat toimiviksi. Toiminnallisuuden lisäämistä. Pylint testien mukaisia korjauksia
 |14.12. | 10   | Testien luomista. Log out toiminnot. Lisää ominaisuuksia myymälänäkymään. Dokumentointia.
+|17.12. | 3    | Lisätty toiminto että avainluvut otetaan tietokannasta.
 |       | 62   | Tunnit yhteensä
 
 
