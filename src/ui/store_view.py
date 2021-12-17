@@ -38,7 +38,7 @@ class StoreView:
 
         cr_plan_outcome_label = ttk.Label(master=self._frame,
         text=f"CR target: {self.kpi_calculator:.2f}")
-        cr_plan_outcome_label.grid(row=15, padx=5, pady=5, sticky=(constants.E, constants.W))
+        cr_plan_outcome_label.grid(row=14, padx=5, pady=5, sticky=(constants.E, constants.W))
 
     def _IPT_kpi_handler(self):
         ipt_plan = self._month_IPT_entry.get()
@@ -48,7 +48,7 @@ class StoreView:
 
         ipt_plan_outcome_label = ttk.Label(master=self._frame,
         text=f"IPT target: {self.ipt_calculatror:.2f}")
-        ipt_plan_outcome_label.grid(row=18, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
+        ipt_plan_outcome_label.grid(row=16, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
 
     def _APT_kpi_handler(self):
         apt_plan = self._month_APT_entry.get()
@@ -58,8 +58,8 @@ class StoreView:
         self.apt_calculator = (self._kpi_figures[2]* apt_plan)
 
         apt_plan_outcome_label = ttk.Label(master=self._frame,
-        text=f"IPT target: {self.apt_calculator:.2f}")
-        apt_plan_outcome_label.grid(row=21, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
+        text=f"APT target: {self.apt_calculator:.2f}")
+        apt_plan_outcome_label.grid(row=18, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
 
     def _initialize_header(self):
 
@@ -79,7 +79,7 @@ class StoreView:
     def _initialize_store_budget(self):
 
         yearly_budget_label = ttk.Label(master=self._frame, 
-        text=f"This fiscal year budget: {self._new_budget}€", font=BOLD)
+        text=f"This fiscal year budget: {self._new_budget}€")
 
         self._month_budget_calculator = round(self._new_budget/12, 2)
         monthly_budget_label = ttk.Label(master=self._frame,
@@ -115,8 +115,7 @@ class StoreView:
     
     def _initialize_kpi_calculator(self):
         monthly_kpi_targets_label = ttk.Label(master=self._frame,
-        text= """Calculate Key Figure targets, insert all the figures\n 
-        and calculate this year potential netsale""")
+        text= """Calculate Key Figure targets for this month:""")
 
         month_CR_label = ttk.Label(master=self._frame,
         text="CR growth in %:")
@@ -126,27 +125,27 @@ class StoreView:
 
         monthly_kpi_targets_label.grid(row=12, column=0, padx=3, pady=3, sticky=(constants.E, constants.W))
         month_CR_label.grid(row=13, column=0, padx=3, pady=3, sticky=(constants.E, constants.W))
-        self._month_CR_entry.grid(row=14, column=0, padx=3, pady=3)
+        self._month_CR_entry.grid(row=13, column=1, padx=3, pady=3)
 
-        cr_button.grid(row=14, column=1, padx=3, pady=3)
+        cr_button.grid(row=13, column=2, padx=3, pady=3)
 
         month_IPT_label = ttk.Label(master=self._frame,
         text="Calculate IPT growth in %")
         self._month_IPT_entry = ttk.Entry(master=self._frame)
         ipt_button = ttk.Button(master=self._frame, text="Confirm", command=self._IPT_kpi_handler)
 
-        month_IPT_label.grid(row=16, column=0, padx=3, pady=3, sticky=(constants.E, constants.W))
-        self._month_IPT_entry.grid(row=17, column=0, padx=3, pady=3)
-        ipt_button.grid(row=17, column=1, padx=3, pady=3)
+        month_IPT_label.grid(row=15, column=0, padx=3, pady=3, sticky=(constants.E, constants.W))
+        self._month_IPT_entry.grid(row=15, column=1, padx=3, pady=3)
+        ipt_button.grid(row=15, column=2, padx=3, pady=3)
 
         month_APT_label = ttk.Label(master=self._frame, 
         text="Calculate APT growth")
         self._month_APT_entry = ttk.Entry(master=self._frame)
         apt_button = ttk.Button(master=self._frame, text="Confirm", command=self._APT_kpi_handler)
 
-        month_APT_label.grid(row=19, column=0, padx=3, pady=3, sticky=(constants.E, constants.W))
-        self._month_APT_entry.grid(row=20, column=0, padx=3, pady=3)
-        apt_button.grid(row=20, column=1, padx=3, pady=3)
+        month_APT_label.grid(row=17, column=0, padx=3, pady=3, sticky=(constants.E, constants.W))
+        self._month_APT_entry.grid(row=17, column=1, padx=3, pady=3)
+        apt_button.grid(row=17, column=2, padx=3, pady=3)
 
     def _initialize_footer(self):
         go_back_button = ttk.Button(master=self._frame, text="Go back", command=self._views[2])
