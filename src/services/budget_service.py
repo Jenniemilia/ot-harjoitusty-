@@ -1,5 +1,6 @@
 from entities.budget import Budget
 from tkinter import messagebox
+from datetime import date
 
 
 from repositories.budget_repository import budget_repository
@@ -20,7 +21,9 @@ class BudgetService:
 
     def get_last_year_sales_by_month(self, store_id):
         """Gets monthly sales from database"""
-        sales = self._budget_repository.get_sales_by_month(11, store_id)
+        self._current_date = date.today()
+        self._get_month = self._current_date.month
+        sales = self._budget_repository.get_sales_by_month(self._get_month, store_id)
         return sales
 
     def check_if_target_values_have_been_set(self, store_id):
@@ -47,6 +50,12 @@ class BudgetService:
 
         self._new_budget = self._budget_repository.get_new_budget(store_id)
         return self._new_budget
+
+    def get_yearly_kpi_figures_by_month(self, store_id):
+        
+        self._last_fiscal_kpi = self._budget_repository.get_yearly_kpi_figures_by_month(store_id, self._get_month)
+
+        return self._last_fiscal_kpi
 
 
 budget_service = BudgetService(budget_repository)

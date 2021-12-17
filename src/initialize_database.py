@@ -39,11 +39,11 @@ def insert_sales_ly(connection):
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
     (1, 138000, 12050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (2, 104000, 9050, 1)""")
+    (2, 124000, 9050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (3, 125000, 10050, 1)""")
+    (3, 135000, 10050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (4, 138000, 12950, 1)""")
+    (4, 142000, 12950, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
     (5, 145000, 13050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
@@ -57,7 +57,7 @@ def insert_sales_ly(connection):
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
     (10, 119800, 12050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (11, 125000, 11050, 1)""")
+    (11, 135000, 11050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
     (12, 147000, 13950, 1)""")
 
@@ -76,6 +76,22 @@ def insert_kpi_ly(connection):
     (3, 16, 1.4, 46.2, 1)""")
     cursor.execute("""INSERT INTO Ly_kpi (month, cr, ipt, apt, store_id) values
     (4, 16.3, 1.6, 44.8, 1)""")
+    cursor.execute("""INSERT INTO Ly_kpi (month, cr, ipt, apt, store_id) values
+    (5, 18, 1.5, 56, 1)""")
+    cursor.execute("""INSERT INTO Ly_kpi (month, cr, ipt, apt, store_id) values
+    (6, 17.5, 1.2, 45, 1)""")
+    cursor.execute("""INSERT INTO Ly_kpi (month, cr, ipt, apt, store_id) values
+    (7, 16, 1.4, 46.2, 1)""")
+    cursor.execute("""INSERT INTO Ly_kpi (month, cr, ipt, apt, store_id) values
+    (8, 16.3, 1.6, 44.8, 1)""")
+    cursor.execute("""INSERT INTO Ly_kpi (month, cr, ipt, apt, store_id) values
+    (9, 17.5, 1.2, 45, 1)""")
+    cursor.execute("""INSERT INTO Ly_kpi (month, cr, ipt, apt, store_id) values
+    (10, 16, 1.4, 46.2, 1)""")
+    cursor.execute("""INSERT INTO Ly_kpi (month, cr, ipt, apt, store_id) values
+    (11, 16.3, 1.6, 44.8, 1)""")
+    cursor.execute("""INSERT INTO Ly_kpi (month, cr, ipt, apt, store_id) values
+    (12, 16.3, 1.6, 44.8, 1)""")
 
     connection.commit()
 

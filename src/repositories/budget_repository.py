@@ -80,6 +80,16 @@ class BudgetRepository:
         result = cursor.fetchone()
         return result[0]
 
+    def get_yearly_kpi_figures_by_month(self, store_id, month):
+
+        cursor = self._connection.cursor()
+
+        cursor.execute("""SELECT cr, ipt, apt FROM Ly_kpi WHERE store_id = ? AND month = ?""",
+        [store_id, month])
+
+        result = cursor.fetchone()
+        return result
+
 budget_repository = BudgetRepository(get_database_connection())
 
 

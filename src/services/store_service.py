@@ -77,9 +77,9 @@ class StoreService:
 
             raise InvalidCredentialsError("Invalid storenumber or password")
 
-        self._storenumber = storenumber
+        self._store = store
 
-        return storenumber
+        return store
 
     def get_current_store(self):
         """Gets the current user id number"""
