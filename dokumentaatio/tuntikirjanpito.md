@@ -17,7 +17,7 @@
 |10.12. | 9    | Tietokannat toimiviksi. Toiminnallisuuden lisäämistä. Pylint testien mukaisia korjauksia
 |14.12. | 10   | Testien luomista. Log out toiminnot. Lisää ominaisuuksia myymälänäkymään. Dokumentointia.
 |17.12. | 3    | Lisätty toiminto että avainluvut otetaan tietokannasta.
-|19.12. | 2    | Lisää testejä service luokkaan.
+|19.12. | 3    | Lisää testejä service luokkaan. Lisäys budjetin laskentaan jos myymälällä ei edellisen vuoden myyntejä.
 |       | 76   | Tunnit yhteensä
 
 
