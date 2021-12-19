@@ -17,7 +17,12 @@ class BudgetService:
 
         self._yearly_sales =  self._budget_repository.get_sales_from_total_fiscal_year(store_id)
 
-        return self._yearly_sales
+        if self._yearly_sales is not None:
+
+            return self._yearly_sales
+
+        else:
+            return 0
 
     def get_last_year_sales_by_month(self, store_id):
         """Gets monthly sales from database"""

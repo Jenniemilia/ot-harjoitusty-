@@ -14,7 +14,6 @@ class AdminView:
         self._frame = None
         self._store = store_service.get_current_store()
         self._store_id = store_service.get_store_id_by_storenumber(self._store.storenumber)
-        self._ly_total_sales = budget_service.get_total_fiscal_year_sales(self._store_id)
 
         self.initialize()
 
@@ -37,6 +36,8 @@ class AdminView:
         if check_if_targets == True:
             self._views[3]()
 
+    def _potential_sales(self):
+        self._ly_total_sales = int(self._enter_potential_sales_entry.get())
 
     def convert_target(self):
         """Convert LY sales based on growth plan"""
@@ -74,13 +75,25 @@ class AdminView:
         store_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5,
         sticky=(constants.E, constants.W))
 
-        ly_sales_info_label = ttk.Label(master=self._frame,
-        text=f"Last Fiscal Year sales total: {self._ly_total_sales}")
+        
+        self._ly_total_sales = budget_service.get_total_fiscal_year_sales(self._store_id)
+        if self._ly_total_sales:
+            ly_sales_info_label = ttk.Label(master=self._frame,
+            text=f"Last Fiscal Year sales total: {self._ly_total_sales}")            
+        
+        else:
+            ly_sales_info_label = ttk.Label(master=self._frame,
+            text="""You don't have previous sales yet, enter your potential sale,\n
+        to calculate key performance indicators and personal budget""") 
+            self._enter_potential_sales_entry = ttk.Entry(master=self._frame)
+            enter_potential_sales_button =ttk.Button(master=self._frame, text="Confirm", command=self._potential_sales)
 
+            self._enter_potential_sales_entry.grid(row=2, column=0)
+            enter_potential_sales_button.grid(row=2, column=1)           
+        
         ly_sales_info_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5,
-        sticky=(constants.E, constants.W))
-
-
+            sticky=(constants.E, constants.W))
+        
     def _initialize_budget_calculator(self):
 
         budget_label = ttk.Label(master=self._frame, text=f"Add the growth target as a percentage")
