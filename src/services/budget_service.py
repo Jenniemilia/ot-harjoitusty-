@@ -28,7 +28,7 @@ class BudgetService:
 
     def check_if_target_values_have_been_set(self, store_id):
         is_set = self._budget_repository.check_if_values_budget(store_id)
-        if is_set == False:
+        if is_set is False:
             messagebox.showinfo("showinfo", "You need to set the targets first")
             return False
         return True
@@ -37,7 +37,7 @@ class BudgetService:
     def edit_yearly_target_budget(self, new_budget, store_id):
         """Edit fiscal year targets based on user input"""
         earlier_value = self._budget_repository.check_if_values_budget(store_id)
-        if earlier_value == False:
+        if earlier_value is False:
             self._budget_repository.insert_yearly_target_budget(new_budget, store_id)
 
         else:

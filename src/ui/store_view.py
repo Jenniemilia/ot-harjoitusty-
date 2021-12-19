@@ -1,6 +1,5 @@
 from tkinter import ttk, constants
 from datetime import date
-from tkinter.font import BOLD
 from services.store_service import store_service
 from services.budget_service import budget_service
 
@@ -11,10 +10,10 @@ class StoreView:
         self._views = views
         self._frame = None
         self._store = store_service.get_current_store()
-        self._storenumber = store_service.get_storenumber_by_id(self._store)
-        self._monthly_budget = budget_service.get_last_year_sales_by_month(self._store)
-        self._new_budget = budget_service.get_new_budget_for_current_fiscal(self._store)
-        self._kpi_figures = budget_service.get_yearly_kpi_figures_by_month(self._store)
+        self._store_id = store_service.get_store_id_by_storenumber(self._store.storenumber)
+        self._monthly_budget = budget_service.get_last_year_sales_by_month(self._store_id)
+        self._new_budget = budget_service.get_new_budget_for_current_fiscal(self._store_id)
+        self._kpi_figures = budget_service.get_yearly_kpi_figures_by_month(self._store_id)
 
         self._initialize()
 
@@ -71,7 +70,7 @@ class StoreView:
         sticky=(constants.E, constants.W))
 
         header_label = ttk.Label(master=self._frame,
-        text=f"You are logged in with storenumber: {self._storenumber}", font="Calibri, 12")
+        text=f"You are logged in with storenumber: {self._store.storenumber}", font="Calibri, 12")
 
         header_label.grid(row=1, columnspan=2, padx=10, pady=10,
         sticky=(constants.E, constants.W))

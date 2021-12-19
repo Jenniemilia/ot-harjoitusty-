@@ -5,14 +5,8 @@ from services.budget_service import BudgetService
 from services.store_service import (
     StoreService,
     InvalidCredentialsError,
+    UserInputError,
     UsernameExistsError)
-
-class FakeBudgetRepository:
-    def __init__(self, sales = None):
-        self.sales = sales or []
-
-    def get_total_sales_last_fiscal(self):
-        return self.get_total_sales
 
 class FakeStoreRepository:
     def __init__(self, stores=None):
@@ -54,9 +48,41 @@ class TestStoreService(unittest.TestCase):
         self.store_service.register(self.store_1234.storenumber, self.store_1234.password, self.store_1234.password)
 
         store = self.store_service.login(self.store_1234.storenumber, self.store_1234.password)
-        print(store.storenumber)
-        print(self.store_1234.storenumber)
         self.assertEqual(store.storenumber, self.store_1234.storenumber)
 
+    def test_login_with_invalid_storenumber(self):
+        
+        self.assertRaises(
+            InvalidCredentialsError,
+            lambda: self.store_service.login('3344', 'myymala1')
+        )
 
-    
+    def test_login_with_invalid_password(self):
+
+        self.assertRaises(
+            InvalidCredentialsError,
+            lambda: self.store_service.login('1234', 'salasana3')
+        )        
+
+    def test_get_current_store(self):
+        self.login(self.store_1234)
+
+        current_store = self.store_service.get_current_store()
+
+        self.assertEqual(current_store.storenumber, self.store_1234.storenumber)
+
+    def test_register_with_too_short_password(self):
+        
+        self.assertRaises(
+            UserInputError,
+            lambda: self.store_service.register('1234', 'sala1', 'sala1')
+        )        
+
+    def test_to_register_with_existing_store_number(self):
+
+        self.store_service.register(self.store_1234.storenumber, self.store_1234.password, self.store_1234.password)
+
+        self.assertRaises(
+            UsernameExistsError,
+            lambda: self.store_service.register(self.store_1234.storenumber, 'salasana1', 'salasana1')
+        )       

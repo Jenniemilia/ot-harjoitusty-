@@ -37,7 +37,7 @@ class StoreService:
         )
 
         if login:
-            self._store_id = store
+            self._store = store
 
         return store
 
@@ -84,14 +84,14 @@ class StoreService:
     def get_current_store(self):
         """Gets the current user id number"""
 
-        return self._store_id
+        return self._store
 
-    def get_storenumber_by_id(self, store_id):
+    def get_store_id_by_storenumber(self, storenumber):
         """Gets the current user storenumber"""
 
-        storenumber = self._store_repository.get_store_information(store_id)
+        store_id = self._store_repository.get_store_information(storenumber)
 
-        return storenumber
+        return store_id
 
     def logout(self):
         """Log out current user"""

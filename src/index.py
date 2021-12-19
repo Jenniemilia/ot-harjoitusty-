@@ -1,11 +1,9 @@
 from tkinter import Tk
 from ui.ui import UI
-from initialize_database import initialize_database
 
 
 def main():
     """Construct and run the application"""
-    initialize_database()
     window = Tk()
     window.title("Budjetointisovellus")
 

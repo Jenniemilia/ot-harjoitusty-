@@ -23,7 +23,11 @@ Myymälätunnuksilla näkee tulevan kuukauden tavoitteen sekä pystyy muokkaamaa
 ```bash
 poetry install
 ```
-2. Käynnistä sovellus komennolla:  
+2. Alusta tietokanta komennolla:
+```bash
+poetry run invoke build
+```
+3. Käynnistä sovellus komennolla:  
 ```bash
 poetry run invoke start
 ```

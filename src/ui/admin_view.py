@@ -13,8 +13,8 @@ class AdminView:
         self._label_var = None
         self._frame = None
         self._store = store_service.get_current_store()
-        self._storenumber = store_service.get_storenumber_by_id(self._store)
-        self._ly_total_sales = budget_service.get_total_fiscal_year_sales(self._store)
+        self._store_id = store_service.get_store_id_by_storenumber(self._store.storenumber)
+        self._ly_total_sales = budget_service.get_total_fiscal_year_sales(self._store_id)
 
         self.initialize()
 
@@ -33,7 +33,7 @@ class AdminView:
         self._views[0]()
 
     def _move_to_kpi_handler(self):
-        check_if_targets = budget_service.check_if_target_values_have_been_set(self._store)
+        check_if_targets = budget_service.check_if_target_values_have_been_set(self._store_id)
         if check_if_targets == True:
             self._views[3]()
 
@@ -45,7 +45,7 @@ class AdminView:
         growth_plan = int(growth_plan)
 
         self.calculator = ((self._ly_total_sales) * (growth_plan + 100))/100
-        budget_service.edit_yearly_target_budget(self.calculator, self._store)
+        budget_service.edit_yearly_target_budget(self.calculator, self._store_id)
 
         budget_outcome_label = ttk.Label(master=self._frame,
         text=f"Budget for the fiscal year 2021-2022: {self.calculator:.2f}")
@@ -69,7 +69,7 @@ class AdminView:
     def _initialize_header(self):
 
         store_label = ttk.Label(master=self._frame,
-        text=f"Welcome to store {self._storenumber}")
+        text=f"Welcome to store {self._store.storenumber}")
 
         store_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5,
         sticky=(constants.E, constants.W))

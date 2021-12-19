@@ -38,14 +38,14 @@ class StoreRepository:
 
         self._connection.commit()
 
-        return cursor.lastrowid
+        return store
 
-    def get_store_information(self, store_id):
+    def get_store_information(self, storenumber):
         """Get storenumber by store_id"""
 
         cursor = self._connection.cursor()
 
-        cursor.execute("SELECT storenumber FROM Stores WHERE id = ?", [store_id])
+        cursor.execute("SELECT id FROM Stores WHERE storenumber = ?", [storenumber])
 
         result = cursor.fetchone()
         return result[0]
