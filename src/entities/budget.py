@@ -10,7 +10,7 @@ class Budget:
 
     def __init__(self, month, sales_ly, traffic, store_id):
         """Constructor that creates sales from previous years"""
-        
+
         self.month = month
         self.sales_ly = sales_ly
         self.traffic = traffic

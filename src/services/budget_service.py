@@ -1,4 +1,3 @@
-from entities.budget import Budget
 from tkinter import messagebox
 from datetime import date
 
@@ -69,8 +68,9 @@ class BudgetService:
         return self._new_budget
 
     def get_yearly_kpi_figures_by_month(self, store_id):
-        
-        self._last_fiscal_kpi = self._budget_repository.get_yearly_kpi_figures_by_month(store_id, self._get_month)
+
+        self._last_fiscal_kpi = self._budget_repository.get_yearly_kpi_figures_by_month(
+            store_id, self._get_month)
 
         return self._last_fiscal_kpi
 
