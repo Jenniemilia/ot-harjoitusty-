@@ -32,10 +32,18 @@ class FakeStoreRepository:
     def delete_all(self):
         self.stores = []
 
+class FakeBudgetRepository:
+    def __init__(self):
+        pass
+
+
 class TestStoreService(unittest.TestCase):
     def setUp(self):
         self.store_service = StoreService(
-            FakeStoreRepository()
+            FakeStoreRepository() 
+        )
+        self.budget_service = BudgetService(
+            FakeBudgetRepository()
         )
     
         self.store_1234 = Store(1234, 'myymala1')
@@ -77,6 +85,12 @@ class TestStoreService(unittest.TestCase):
             UserInputError,
             lambda: self.store_service.register('1234', 'sala1', 'sala1')
         )        
+
+    def test_register_with_incorrect_password_confirmation(self):
+        self.assertRaises(
+            UserInputError,
+            lambda: self.store_service.register('1234', 'sala1', 'salasana1')
+        )  
 
     def test_to_register_with_existing_store_number(self):
 

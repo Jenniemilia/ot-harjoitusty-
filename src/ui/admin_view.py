@@ -1,6 +1,6 @@
-from tkinter import Button, ttk, StringVar, constants
+from tkinter import ttk, constants
 from services.store_service import store_service
-from services.budget_service import BudgetService, budget_service
+from services.budget_service import budget_service
 
 class AdminView:
     """Class that contains all the information of previous fiscal year budget and has
@@ -32,18 +32,26 @@ class AdminView:
         self._views[0]()
 
     def _move_to_kpi_handler(self):
-        check_if_targets = budget_service.check_if_target_values_have_been_set(self._store_id)
-        if check_if_targets == True:
-            self._views[3]()
+        self._check_if_kpi = budget_service.check_if_last_year_figures(self._store_id)
+        if self._check_if_kpi:
+
+            check_if_targets = budget_service.check_if_target_values_have_been_set(self._store_id)
+            if check_if_targets == True:
+                self._views[3]()
+        else:
+            info_label = ttk.Label(master=self._frame,
+            text="""Unfortunately you are unable to calculate key performance figures as you \n
+            don't have last fiscal year figures""")
+            info_label.grid(row=14, padx=5, pady=5, sticky=(constants.E, constants.W))
 
     def _potential_sales(self):
-        self._ly_total_sales = int(self._enter_potential_sales_entry.get())
+        self._ly_total_sales = float(self._enter_potential_sales_entry.get())
 
     def convert_target(self):
         """Convert LY sales based on growth plan"""
 
         growth_plan = self._budget_entry.get()
-        growth_plan = int(growth_plan)
+        growth_plan = float(growth_plan)
 
         self.calculator = ((self._ly_total_sales) * (growth_plan + 100))/100
         budget_service.edit_yearly_target_budget(self.calculator, self._store_id)
@@ -58,12 +66,12 @@ class AdminView:
         for the following financial year"""
 
         personal_costs_budget = self._personal_cost_entry.get()
-        personal_costs_budget = int(personal_costs_budget )
+        personal_costs_budget = float(personal_costs_budget)
 
         self.pc_calculator = (self.calculator * (personal_costs_budget))/100
 
         personal_cost_label = ttk.Label(master=self._frame,
-        text=f"Personal cost budget for the fiscal year 2021-2022: {self.pc_calculator:.2f}€")
+        text=f"Personal cost budget for the fiscal year 2021-2022: {self.pc_calculator:.2f}")
         personal_cost_label.grid(row=9, padx=5, pady=5, sticky=(constants.E, constants.W))
 
 

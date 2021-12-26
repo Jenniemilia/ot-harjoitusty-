@@ -56,11 +56,6 @@ class StoreService:
 
             raise UserInputError("Passwords don't match")
 
-        if storenumber == ('^[0-9]+$'):
-            messagebox.showerror("showerror", "Storenumber can only contain numbers 0-9")
-
-            raise UserInputError("Storenumber can only contain numbers 0-9")
-
         if password == ('[^a-z]'):
             messagebox.showerror("showerror", "Password cannot consist of letters only")
 

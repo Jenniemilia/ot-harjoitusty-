@@ -32,7 +32,7 @@ class BudgetService:
         return sales
 
     def get_last_year_traffic_by_month(self, store_id):
-        """Gets monthly trraffic from the database"""
+        """Gets monthly traffic from the database"""
         traffic = self._budget_repository.get_traffic_by_month(self._get_month, store_id)
         return traffic
 
@@ -43,6 +43,13 @@ class BudgetService:
             return False
         return True
 
+    def check_if_last_year_figures(self, store_id):
+        is_figures = self._budget_repository.check_if_kpi(store_id)
+        if is_figures is False:
+            messagebox.showinfo("showinfo", """You are unable to calculate
+            kpi""")
+            return False
+        return True
 
     def edit_yearly_target_budget(self, new_budget, store_id):
         """Edit fiscal year targets based on user input"""

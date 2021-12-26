@@ -54,12 +54,24 @@ class BudgetRepository:
 
         cursor = self._connection.cursor()
 
-        cursor.execute("SELECT count(*) FROM Yearly_targets targets WHERE store_id = ?", [store_id])
+        cursor.execute("SELECT count(*) FROM Yearly_targets WHERE store_id = ?", [store_id])
 
         result = cursor.fetchone()
         if result[0] == 0:
             return False
 
+        return True
+
+    def check_if_kpi(self, store_id):
+        "Checks if previous kpi figures in database"
+
+        cursor = self._connection.cursor()
+
+        cursor.execute("SELECT count(*) FROM Ly_kpi WHERE store_id = ?", [store_id])
+
+        result = cursor.fetchone()
+        if result[0] == 0:
+            return False
         return True
 
     def insert_yearly_target_budget(self, new_budget, store_id):

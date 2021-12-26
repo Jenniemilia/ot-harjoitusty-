@@ -1,5 +1,5 @@
 class Budget:
-    """Kuukauden budjetti.
+    """Store figures by month.
 
     Attributes:
         storenumber = storenumber.
