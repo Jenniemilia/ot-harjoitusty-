@@ -13,10 +13,14 @@ Myymälätunnuksilla näkee tulevan kuukauden tavoitteen sekä pystyy muokkaamaa
 
 [Käyttöohje](https://github.com/Jenniemilia/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
+[Testaus raportti](https://github.com/Jenniemilia/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
+
 ## Releaset
 [Viikko 5](https://github.com/Jenniemilia/ot-harjoitustyo/releases/tag/v1.0.0)
 
 [Viikko 6](https://github.com/Jenniemilia/ot-harjoitustyo/releases/tag/viikko6)
+
+[Final release](https://github.com/Jenniemilia/ot-harjoitustyo/releases/tag/viikko7)
 
 ## Asennus
 1. Asenna riippuvuudet komennolla: 
