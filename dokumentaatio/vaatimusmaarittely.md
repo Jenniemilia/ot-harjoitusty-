@@ -5,12 +5,10 @@ Sovellus on tarkoitettu esimerkiksi kaupan allalle budjetin ja avainlukujen suun
 käyttää monta eri myymälää samanaikaisesti ja niillä kaikilla on omat budjetit ja avainluvut.
 
 ## Käyttäjät
-Ensimmäisessä näkymässä käyttäjä voi 
+Ensimmäisessä näkymässä käyttäjä (myymäläpäällikkö, franchise-yrittäjä) voi 
  - ✅ nähdä edellisen tuloskauden toteutuneen myynnin
  - ✅ lisätä vuosittaisen kasvutavoitteen ja sen mukaan laskea henkilöstöbudjetin prosentteina.  
  - ✅ muuttaa asettettuja tavoitteita tuloskauden aikana jos siihen on tarvetta.  
-Käyttäjä (myymäläpäällikkö, franchise-yrittäjä) 
- - voi jakaa budjetin kuukausitasolle.  
  - ✅asettaa avainlukutavoitteet
 
 ## Käyttöliittymäluonnos
