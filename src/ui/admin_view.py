@@ -49,7 +49,7 @@ class AdminView:
         budget_service.edit_yearly_target_budget(self.calculator, self._store_id)
 
         budget_outcome_label = ttk.Label(master=self._frame,
-        text=f"Budget for the fiscal year 2021-2022: {self.calculator:.2f}")
+        text=f"Budget for the fiscal year 2021-2022: {self.calculator:.2f}€")
         budget_outcome_label.grid(row=5, padx=5, pady=5, sticky=(constants.E, constants.W))
 
 
@@ -63,7 +63,7 @@ class AdminView:
         self.pc_calculator = (self.calculator * (personal_costs_budget))/100
 
         personal_cost_label = ttk.Label(master=self._frame,
-        text=f"Personal cost budget for the fiscal year 2021-2022: {self.pc_calculator:.2f}")
+        text=f"Personal cost budget for the fiscal year 2021-2022: {self.pc_calculator:.2f}€")
         personal_cost_label.grid(row=9, padx=5, pady=5, sticky=(constants.E, constants.W))
 
 
@@ -89,7 +89,8 @@ class AdminView:
             enter_potential_sales_button =ttk.Button(master=self._frame, text="Confirm", command=self._potential_sales)
 
             self._enter_potential_sales_entry.grid(row=2, column=0)
-            enter_potential_sales_button.grid(row=2, column=1)           
+            enter_potential_sales_button.grid(row=2, column=1, padx=5, pady=5,
+            sticky=(constants.E, constants.W))        
         
         ly_sales_info_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5,
             sticky=(constants.E, constants.W))

@@ -31,6 +31,11 @@ class BudgetService:
         sales = self._budget_repository.get_sales_by_month(self._get_month, store_id)
         return sales
 
+    def get_last_year_traffic_by_month(self, store_id):
+        """Gets monthly trraffic from the database"""
+        traffic = self._budget_repository.get_traffic_by_month(self._get_month, store_id)
+        return traffic
+
     def check_if_target_values_have_been_set(self, store_id):
         is_set = self._budget_repository.check_if_values_budget(store_id)
         if is_set is False:

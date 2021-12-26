@@ -5,18 +5,18 @@ def get_sales_by_month(row):
     return Budget(row["month"], row["sales_ly"], row["traffic"]) if row else None
 
 class BudgetRepository:
-    """Luokka joka vastaa budgetin tietokantaan liittyvistä operaatioista"""
+    """The category responsible for budget database operations"""
 
     def __init__(self, connection):
-        """Luokan konstruktori
+        """Class constructor
 
         Args:
-            file_path: polku tiedostoon johon toteutuneet myynnit tallennetaan."""
+            file_path: the path to the file where the actual sales are saved."""
 
         self._connection = connection
 
     def get_sales_by_month(self, month, store_id):
-        """Hakee edellisen tuloskauden myynnin kuukausitasolla"""
+        """Retrieves the sales for the previous fiscal year on a monthly basis"""
 
         cursor = self._connection.cursor()
 
@@ -25,6 +25,17 @@ class BudgetRepository:
 
         result = cursor.fetchone()
 
+        return result[0]
+
+    def get_traffic_by_month(self, month, store_id):
+        "Retrieves teh traffic for the previous fiscal year on a monthly basis"
+
+        cursor =  self._connection.cursor()
+
+        cursor.execute("SELECT traffic FROM Ly_fiscal WHERE month = ? AND store_id = ?",
+        [month, store_id])
+
+        result = cursor.fetchone()
         return result[0]
 
     def get_sales_from_total_fiscal_year(self, store_id):

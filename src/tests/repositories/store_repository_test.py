@@ -32,6 +32,11 @@ class TestStoreRepository(unittest.TestCase):
         store = store_repository.find_by_storenumber(self.store_9876.storenumber)
         self.assertEqual(store.storenumber, self.store_9876.storenumber)
 
+    def test_get_store_information(self):
+        store_repository.create_new(self.store_1234)
+
+        store = store_repository.get_store_information(self.store_1234.storenumber)
+        self.assertEqual(store, 1)
 
 
 
