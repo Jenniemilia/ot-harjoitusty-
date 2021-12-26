@@ -71,6 +71,14 @@ class StoreView:
         text=f"Traffic target: {self.traffic_calculator}")
         traffic_plan_outcome_label.grid(row=22, column=0, padx=5, pady=5, sticky=(constants.E, constants.W))
 
+    def _total_month_handler(self):
+        self._total_month_calculator = ((self.kpi_calculator/100) * self.ipt_calculator *
+        self.aur_calculator * self.traffic_calculator)
+
+        total_month_result_label = ttk.Label(master=self._frame,
+        text=f"Netsale for this month would be {self._total_month_calculator:.2f}€")
+        total_month_result_label.grid(row=24, column=0, padx=3, pady=3, sticky=(constants.E, constants.W))
+
     def _initialize_header(self):
 
         self.date = date.today()
@@ -177,14 +185,20 @@ class StoreView:
         traffic_button.grid(row=21, column=2, padx=3, pady=3)
 
     def _initialize_total_month_budget(self):
-        pass
+        total_month_label = ttk.Label(master=self._frame,
+        text="After added kpi growth plans, calculate net sales:")
+        total_month_button= ttk.Button(master=self._frame, text="Confirm", command=self._total_month_handler)
+
+        total_month_label.grid(row=23, column=0, padx=3, pady=3, sticky=(constants.E, constants.W))
+        total_month_button.grid(row=23, column=1, padx=3, pady=3)
+
 
 
     def _initialize_footer(self):
         go_back_button = ttk.Button(master=self._frame, text="Go back", command=self._views[2])
-        go_back_button.grid(row=24, column=1, padx=5, pady=5, sticky=constants.SE)
+        go_back_button.grid(row=26, column=1, padx=5, pady=5, sticky=constants.SE)
         log_out_button = ttk.Button(master=self._frame, text="Log out", command=self._logout_handler)
-        log_out_button.grid(row=25, column=1, padx=5, pady=5, sticky=constants.SE)
+        log_out_button.grid(row=27, column=1, padx=5, pady=5, sticky=constants.SE)
 
     def _initialize(self):
         """Initialize page view"""

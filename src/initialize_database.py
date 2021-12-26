@@ -37,29 +37,29 @@ def insert_sales_ly(connection):
     cursor= connection.cursor()
 
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (1, 138000, 12050, 1)""")
+    (1, 148000, 12050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (2, 124000, 9050, 1)""")
+    (2, 134000, 11050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (3, 135000, 10050, 1)""")
+    (3, 135000, 13050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
     (4, 142000, 12950, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (5, 145000, 13050, 1)""")
+    (5, 145000, 15050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (6, 15000, 18050, 1)""")
+    (6, 151000, 18050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (7, 134100, 17150, 1)""")
+    (7, 134900, 17150, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (8, 138120, 16850, 1)""")
+    (8, 148120, 16850, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (9, 128000, 12350, 1)""")
+    (9, 131000, 14350, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (10, 119800, 12050, 1)""")
+    (10, 127800, 14050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (11, 135000, 11050, 1)""")
+    (11, 135000, 16050, 1)""")
     cursor.execute("""INSERT INTO Ly_fiscal (month, sales_ly, traffic, store_id) values
-    (12, 147000, 13950, 1)""")
+    (12, 147000, 17950, 1)""")
 
     connection.commit()
 
