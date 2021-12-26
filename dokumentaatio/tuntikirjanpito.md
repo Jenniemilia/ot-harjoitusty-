@@ -18,6 +18,7 @@
 |14.12. | 10   | Testien luomista. Log out toiminnot. Lisää ominaisuuksia myymälänäkymään. Dokumentointia.
 |17.12. | 3    | Lisätty toiminto että avainluvut otetaan tietokannasta.
 |19.12. | 3    | Lisää testejä service luokkaan. Lisäys budjetin laskentaan jos myymälällä ei edellisen vuoden myyntejä.
-|       | 76   | Tunnit yhteensä
+|26.12. | 6    | Aur ja apt kaavat sekä koko kuukauden laskukaava. Lisää testejä. Virheilmoitusten parantelua. Dokumentointia
+|       | 82   | Tunnit yhteensä
 
 
