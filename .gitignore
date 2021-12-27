@@ -11,3 +11,6 @@ __pycache__
 *.py[cod]
 *$py.class
 src/ui/__pycache__/ui.cpython-38.pyc
+
+data/database.sqlite
+data/test-database.sqlite
