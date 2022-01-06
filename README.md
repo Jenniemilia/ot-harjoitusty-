@@ -1,7 +1,7 @@
 # Ohjelmistotekniikka, harjoitustyö - Budjettisovellus #
 
-Budjettisovellus on tarkoitettu työvälineeksi esimerkiksi kaupan alalle. Tietokannassa on edellisen tuloskauden toteutuneet myynnit ja avainluvut kuukausitasolla. Näiden pohjalta Admin-oikeuksilla pystytään muokaamaan tulevan tuloskauden tavoitteita myymäläkohtaisesti.
-Myymälätunnuksilla näkee tulevan kuukauden tavoitteen sekä pystyy muokkaamaan avainlukutavoitteita sen mukaisesti, että budjetti saavutettaisiin. 
+Budjettisovellus on tarkoitettu työvälineeksi esimerkiksi kaupan alalle. Tietokannassa on edellisen tuloskauden toteutuneet myynnit ja avainluvut kuukausitasolla. Näiden pohjalta pystytään muokaamaan tulevan tuloskauden myynti- sekä henkilöstökustannustavoitteita.
+Asetetun tavoitteen mukaisesti voidaan seuraavassa näkymässä muokata avainlukutavoitteita niin, että budjetti saavutettaisiin. 
 
 ## Dokumentaatio
 
